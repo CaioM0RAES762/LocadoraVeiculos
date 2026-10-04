@@ -41,7 +41,7 @@ A numeração dos testes segue a organização por entidade. A coluna "Ordem de 
 - Os dados utilizados são fictícios.
 - Os IDs não começam em 1 porque o banco já havia sido usado em validações anteriores; o SQL Server não reaproveita valores de identidade após exclusões.
 - O Swagger UI mostra a indicação *Undocumented* ao lado dos códigos que não estão declarados na especificação OpenAPI gerada, já que os controllers não declaram atributos de resposta. Os códigos possíveis de cada endpoint estão descritos em `documentacao-apis.md`.
-- A caixa *Response body* do Swagger UI tem altura limitada e barra de rolagem. Quando o retorno não coube na caixa, há um print complementar com o sufixo `-parte2`, com a mesma resposta rolada até o fim.
+- A caixa *Response body* do Swagger UI tem altura limitada e barra de rolagem. Nas respostas em que a caixa apresentou barra de rolagem, há um print complementar com o sufixo `-parte2`, com a mesma resposta rolada até o fim.
 - Além dos testes documentados, foram feitas pelo Swagger 16 chamadas de apoio, sem print, para cadastrar os demais dados usados nos filtros e para a limpeza final (seção 6).
 
 ## 4. Resumo
@@ -118,7 +118,7 @@ Corpo:
 
 ```json
 {
-  "id": 7,
+  "id": 9,
   "nome": "Toyota"
 }
 ```
@@ -131,12 +131,12 @@ Corpo:
 
 - **Método:** PUT
 - **Endpoint:** `/api/Fabricantes/{id}`
-- **URL chamada:** `http://localhost:5000/api/Fabricantes/7`
+- **URL chamada:** `http://localhost:5000/api/Fabricantes/9`
 - **Objetivo:** Alterar o nome do fabricante cadastrado no teste 01.
 
 **Entrada:**
 
-Parâmetros: `id` = `7`
+Parâmetros: `id` = `9`
 
 Corpo:
 
@@ -178,11 +178,11 @@ Nenhuma (sem parâmetros e sem corpo).
 ```json
 [
   {
-    "id": 8,
+    "id": 10,
     "nome": "Honda"
   },
   {
-    "id": 7,
+    "id": 9,
     "nome": "Toyota Motor"
   }
 ]
@@ -196,12 +196,12 @@ Nenhuma (sem parâmetros e sem corpo).
 
 - **Método:** GET
 - **Endpoint:** `/api/Fabricantes/{id}`
-- **URL chamada:** `http://localhost:5000/api/Fabricantes/7`
+- **URL chamada:** `http://localhost:5000/api/Fabricantes/9`
 - **Objetivo:** Consultar o fabricante pelo ID e confirmar a alteração do teste 02.
 
 **Entrada:**
 
-Parâmetros: `id` = `7`
+Parâmetros: `id` = `9`
 
 **Resultado esperado:** 200 OK. Fabricante com o nome alterado ("Toyota Motor").
 
@@ -211,7 +211,7 @@ Parâmetros: `id` = `7`
 
 ```json
 {
-  "id": 7,
+  "id": 9,
   "nome": "Toyota Motor"
 }
 ```
@@ -224,12 +224,12 @@ Parâmetros: `id` = `7`
 
 - **Método:** DELETE
 - **Endpoint:** `/api/Fabricantes/{id}`
-- **URL chamada:** `http://localhost:5000/api/Fabricantes/7`
+- **URL chamada:** `http://localhost:5000/api/Fabricantes/9`
 - **Objetivo:** Excluir o fabricante, depois de excluídos os veículos vinculados a ele.
 
 **Entrada:**
 
-Parâmetros: `id` = `7`
+Parâmetros: `id` = `9`
 
 **Resultado esperado:** 204 No Content. Exclusão aceita, sem corpo de resposta.
 
@@ -270,7 +270,7 @@ Corpo:
 
 ```json
 {
-  "id": 6,
+  "id": 8,
   "nome": "Sedan"
 }
 ```
@@ -283,12 +283,12 @@ Corpo:
 
 - **Método:** PUT
 - **Endpoint:** `/api/Categorias/{id}`
-- **URL chamada:** `http://localhost:5000/api/Categorias/6`
+- **URL chamada:** `http://localhost:5000/api/Categorias/8`
 - **Objetivo:** Alterar o nome da categoria cadastrada no teste 06.
 
 **Entrada:**
 
-Parâmetros: `id` = `6`
+Parâmetros: `id` = `8`
 
 Corpo:
 
@@ -330,11 +330,11 @@ Nenhuma (sem parâmetros e sem corpo).
 ```json
 [
   {
-    "id": 6,
+    "id": 8,
     "nome": "Sedã"
   },
   {
-    "id": 7,
+    "id": 9,
     "nome": "SUV"
   }
 ]
@@ -348,12 +348,12 @@ Nenhuma (sem parâmetros e sem corpo).
 
 - **Método:** GET
 - **Endpoint:** `/api/Categorias/{id}`
-- **URL chamada:** `http://localhost:5000/api/Categorias/6`
+- **URL chamada:** `http://localhost:5000/api/Categorias/8`
 - **Objetivo:** Consultar a categoria pelo ID e confirmar a alteração do teste 07.
 
 **Entrada:**
 
-Parâmetros: `id` = `6`
+Parâmetros: `id` = `8`
 
 **Resultado esperado:** 200 OK. Categoria com o nome alterado ("Sedã").
 
@@ -363,7 +363,7 @@ Parâmetros: `id` = `6`
 
 ```json
 {
-  "id": 6,
+  "id": 8,
   "nome": "Sedã"
 }
 ```
@@ -376,12 +376,12 @@ Parâmetros: `id` = `6`
 
 - **Método:** DELETE
 - **Endpoint:** `/api/Categorias/{id}`
-- **URL chamada:** `http://localhost:5000/api/Categorias/6`
+- **URL chamada:** `http://localhost:5000/api/Categorias/8`
 - **Objetivo:** Excluir a categoria, depois de excluídos os veículos vinculados a ela.
 
 **Entrada:**
 
-Parâmetros: `id` = `6`
+Parâmetros: `id` = `8`
 
 **Resultado esperado:** 204 No Content. Exclusão aceita, sem corpo de resposta.
 
@@ -424,7 +424,7 @@ Corpo:
 
 ```json
 {
-  "id": 8,
+  "id": 11,
   "nome": "Maria Exemplo",
   "cpf": "11122233344",
   "email": "maria.exemplo@teste.com"
@@ -439,12 +439,12 @@ Corpo:
 
 - **Método:** PUT
 - **Endpoint:** `/api/Clientes/{id}`
-- **URL chamada:** `http://localhost:5000/api/Clientes/8`
+- **URL chamada:** `http://localhost:5000/api/Clientes/11`
 - **Objetivo:** Alterar o nome e o e-mail do cliente cadastrado no teste 11.
 
 **Entrada:**
 
-Parâmetros: `id` = `8`
+Parâmetros: `id` = `11`
 
 Corpo:
 
@@ -488,19 +488,19 @@ Nenhuma (sem parâmetros e sem corpo).
 ```json
 [
   {
-    "id": 10,
+    "id": 13,
     "nome": "Ana Ficticia",
     "cpf": "99988877766",
     "email": "ana.ficticia@teste.com"
   },
   {
-    "id": 9,
+    "id": 12,
     "nome": "Joao Teste",
     "cpf": "55566677788",
     "email": "joao.teste@teste.com"
   },
   {
-    "id": 8,
+    "id": 11,
     "nome": "Maria Exemplo da Silva",
     "cpf": "11122233344",
     "email": "maria.silva@teste.com"
@@ -516,12 +516,12 @@ Nenhuma (sem parâmetros e sem corpo).
 
 - **Método:** GET
 - **Endpoint:** `/api/Clientes/{id}`
-- **URL chamada:** `http://localhost:5000/api/Clientes/8`
+- **URL chamada:** `http://localhost:5000/api/Clientes/11`
 - **Objetivo:** Consultar o cliente pelo ID e confirmar a alteração do teste 12.
 
 **Entrada:**
 
-Parâmetros: `id` = `8`
+Parâmetros: `id` = `11`
 
 **Resultado esperado:** 200 OK. Cliente com nome e e-mail alterados.
 
@@ -531,7 +531,7 @@ Parâmetros: `id` = `8`
 
 ```json
 {
-  "id": 8,
+  "id": 11,
   "nome": "Maria Exemplo da Silva",
   "cpf": "11122233344",
   "email": "maria.silva@teste.com"
@@ -546,12 +546,12 @@ Parâmetros: `id` = `8`
 
 - **Método:** DELETE
 - **Endpoint:** `/api/Clientes/{id}`
-- **URL chamada:** `http://localhost:5000/api/Clientes/8`
+- **URL chamada:** `http://localhost:5000/api/Clientes/11`
 - **Objetivo:** Excluir o cliente, depois de excluído o aluguel vinculado a ele.
 
 **Entrada:**
 
-Parâmetros: `id` = `8`
+Parâmetros: `id` = `11`
 
 **Resultado esperado:** 204 No Content. Exclusão aceita, sem corpo de resposta.
 
@@ -584,8 +584,8 @@ Corpo:
   "modelo": "Corolla",
   "anoFabricacao": 2023,
   "quilometragem": 15000,
-  "fabricanteId": 7,
-  "categoriaId": 6
+  "fabricanteId": 9,
+  "categoriaId": 8
 }
 ```
 
@@ -597,14 +597,14 @@ Corpo:
 
 ```json
 {
-  "id": 10,
+  "id": 14,
   "placa": "TST1A23",
   "modelo": "Corolla",
   "anoFabricacao": 2023,
   "quilometragem": 15000,
-  "fabricanteId": 7,
+  "fabricanteId": 9,
   "fabricante": "Toyota",
-  "categoriaId": 6,
+  "categoriaId": 8,
   "categoria": "Sedan"
 }
 ```
@@ -617,12 +617,12 @@ Corpo:
 
 - **Método:** PUT
 - **Endpoint:** `/api/Veiculos/{id}`
-- **URL chamada:** `http://localhost:5000/api/Veiculos/10`
+- **URL chamada:** `http://localhost:5000/api/Veiculos/14`
 - **Objetivo:** Atualizar a quilometragem do veículo para 15380 km, valor registrado na devolução do aluguel.
 
 **Entrada:**
 
-Parâmetros: `id` = `10`
+Parâmetros: `id` = `14`
 
 Corpo:
 
@@ -632,8 +632,8 @@ Corpo:
   "modelo": "Corolla",
   "anoFabricacao": 2023,
   "quilometragem": 15380,
-  "fabricanteId": 7,
-  "categoriaId": 6
+  "fabricanteId": 9,
+  "categoriaId": 8
 }
 ```
 
@@ -669,47 +669,47 @@ Nenhuma (sem parâmetros e sem corpo).
 ```json
 [
   {
-    "id": 12,
+    "id": 16,
     "placa": "TST3C45",
     "modelo": "Civic",
     "anoFabricacao": 2022,
     "quilometragem": 32000,
-    "fabricanteId": 8,
+    "fabricanteId": 10,
     "fabricante": "Honda",
-    "categoriaId": 6,
+    "categoriaId": 8,
     "categoria": "Sedã"
   },
   {
-    "id": 10,
+    "id": 14,
     "placa": "TST1A23",
     "modelo": "Corolla",
     "anoFabricacao": 2023,
     "quilometragem": 15380,
-    "fabricanteId": 7,
+    "fabricanteId": 9,
     "fabricante": "Toyota Motor",
-    "categoriaId": 6,
+    "categoriaId": 8,
     "categoria": "Sedã"
   },
   {
-    "id": 11,
+    "id": 15,
     "placa": "TST2B34",
     "modelo": "Corolla Cross",
     "anoFabricacao": 2024,
     "quilometragem": 8000,
-    "fabricanteId": 7,
+    "fabricanteId": 9,
     "fabricante": "Toyota Motor",
-    "categoriaId": 7,
+    "categoriaId": 9,
     "categoria": "SUV"
   },
   {
-    "id": 13,
+    "id": 17,
     "placa": "TST4D56",
     "modelo": "HR-V",
     "anoFabricacao": 2023,
     "quilometragem": 12000,
-    "fabricanteId": 8,
+    "fabricanteId": 10,
     "fabricante": "Honda",
-    "categoriaId": 7,
+    "categoriaId": 9,
     "categoria": "SUV"
   }
 ]
@@ -723,12 +723,12 @@ Nenhuma (sem parâmetros e sem corpo).
 
 - **Método:** GET
 - **Endpoint:** `/api/Veiculos/{id}`
-- **URL chamada:** `http://localhost:5000/api/Veiculos/10`
+- **URL chamada:** `http://localhost:5000/api/Veiculos/14`
 - **Objetivo:** Consultar o veículo pelo ID e confirmar a alteração do teste 17.
 
 **Entrada:**
 
-Parâmetros: `id` = `10`
+Parâmetros: `id` = `14`
 
 **Resultado esperado:** 200 OK. Veículo com quilometragem 15380.
 
@@ -738,14 +738,14 @@ Parâmetros: `id` = `10`
 
 ```json
 {
-  "id": 10,
+  "id": 14,
   "placa": "TST1A23",
   "modelo": "Corolla",
   "anoFabricacao": 2023,
   "quilometragem": 15380,
-  "fabricanteId": 7,
+  "fabricanteId": 9,
   "fabricante": "Toyota Motor",
-  "categoriaId": 6,
+  "categoriaId": 8,
   "categoria": "Sedã"
 }
 ```
@@ -758,12 +758,12 @@ Parâmetros: `id` = `10`
 
 - **Método:** DELETE
 - **Endpoint:** `/api/Veiculos/{id}`
-- **URL chamada:** `http://localhost:5000/api/Veiculos/10`
+- **URL chamada:** `http://localhost:5000/api/Veiculos/14`
 - **Objetivo:** Excluir o veículo, depois de excluído o aluguel vinculado a ele.
 
 **Entrada:**
 
-Parâmetros: `id` = `10`
+Parâmetros: `id` = `14`
 
 **Resultado esperado:** 204 No Content. Exclusão aceita, sem corpo de resposta.
 
@@ -792,8 +792,8 @@ Corpo:
 
 ```json
 {
-  "clienteId": 8,
-  "veiculoId": 10,
+  "clienteId": 11,
+  "veiculoId": 14,
   "dataInicio": "2026-10-01T09:00:00",
   "dataFimPrevista": "2026-10-04T09:00:00",
   "dataDevolucao": "2026-10-04T08:30:00",
@@ -811,10 +811,10 @@ Corpo:
 
 ```json
 {
-  "id": 8,
-  "clienteId": 8,
+  "id": 10,
+  "clienteId": 11,
   "cliente": "Maria Exemplo",
-  "veiculoId": 10,
+  "veiculoId": 14,
   "placa": "TST1A23",
   "modelo": "Corolla",
   "dataInicio": "2026-10-01T09:00:00",
@@ -835,19 +835,19 @@ Corpo:
 
 - **Método:** PUT
 - **Endpoint:** `/api/Alugueis/{id}`
-- **URL chamada:** `http://localhost:5000/api/Alugueis/8`
+- **URL chamada:** `http://localhost:5000/api/Alugueis/10`
 - **Objetivo:** Alterar o valor da diária do aluguel do teste 21 para 140,00; o valor total deve ser recalculado.
 
 **Entrada:**
 
-Parâmetros: `id` = `8`
+Parâmetros: `id` = `10`
 
 Corpo:
 
 ```json
 {
-  "clienteId": 8,
-  "veiculoId": 10,
+  "clienteId": 11,
+  "veiculoId": 14,
   "dataInicio": "2026-10-01T09:00:00",
   "dataFimPrevista": "2026-10-04T09:00:00",
   "dataDevolucao": "2026-10-04T08:30:00",
@@ -889,10 +889,10 @@ Nenhuma (sem parâmetros e sem corpo).
 ```json
 [
   {
-    "id": 9,
-    "clienteId": 9,
+    "id": 11,
+    "clienteId": 12,
     "cliente": "Joao Teste",
-    "veiculoId": 12,
+    "veiculoId": 16,
     "placa": "TST3C45",
     "modelo": "Civic",
     "dataInicio": "2026-10-03T10:00:00",
@@ -904,10 +904,10 @@ Nenhuma (sem parâmetros e sem corpo).
     "valorTotal": null
   },
   {
-    "id": 8,
-    "clienteId": 8,
+    "id": 10,
+    "clienteId": 11,
     "cliente": "Maria Exemplo da Silva",
-    "veiculoId": 10,
+    "veiculoId": 14,
     "placa": "TST1A23",
     "modelo": "Corolla",
     "dataInicio": "2026-10-01T09:00:00",
@@ -929,12 +929,12 @@ Nenhuma (sem parâmetros e sem corpo).
 
 - **Método:** GET
 - **Endpoint:** `/api/Alugueis/{id}`
-- **URL chamada:** `http://localhost:5000/api/Alugueis/8`
+- **URL chamada:** `http://localhost:5000/api/Alugueis/10`
 - **Objetivo:** Consultar o aluguel pelo ID e confirmar o recálculo do teste 22 (3 × 140,00 = 420,00).
 
 **Entrada:**
 
-Parâmetros: `id` = `8`
+Parâmetros: `id` = `10`
 
 **Resultado esperado:** 200 OK. Aluguel com valorDiaria 140 e valorTotal 420.
 
@@ -944,10 +944,10 @@ Parâmetros: `id` = `8`
 
 ```json
 {
-  "id": 8,
-  "clienteId": 8,
+  "id": 10,
+  "clienteId": 11,
   "cliente": "Maria Exemplo da Silva",
-  "veiculoId": 10,
+  "veiculoId": 14,
   "placa": "TST1A23",
   "modelo": "Corolla",
   "dataInicio": "2026-10-01T09:00:00",
@@ -968,12 +968,12 @@ Parâmetros: `id` = `8`
 
 - **Método:** DELETE
 - **Endpoint:** `/api/Alugueis/{id}`
-- **URL chamada:** `http://localhost:5000/api/Alugueis/8`
+- **URL chamada:** `http://localhost:5000/api/Alugueis/10`
 - **Objetivo:** Excluir o aluguel.
 
 **Entrada:**
 
-Parâmetros: `id` = `8`
+Parâmetros: `id` = `10`
 
 **Resultado esperado:** 204 No Content. Exclusão aceita, sem corpo de resposta.
 
@@ -1010,25 +1010,25 @@ Parâmetros: `nome` = `Toyota`
 ```json
 [
   {
-    "id": 10,
+    "id": 14,
     "placa": "TST1A23",
     "modelo": "Corolla",
     "anoFabricacao": 2023,
     "quilometragem": 15380,
-    "fabricanteId": 7,
+    "fabricanteId": 9,
     "fabricante": "Toyota Motor",
-    "categoriaId": 6,
+    "categoriaId": 8,
     "categoria": "Sedã"
   },
   {
-    "id": 11,
+    "id": 15,
     "placa": "TST2B34",
     "modelo": "Corolla Cross",
     "anoFabricacao": 2024,
     "quilometragem": 8000,
-    "fabricanteId": 7,
+    "fabricanteId": 9,
     "fabricante": "Toyota Motor",
-    "categoriaId": 7,
+    "categoriaId": 9,
     "categoria": "SUV"
   }
 ]
@@ -1059,36 +1059,36 @@ Nenhuma (sem parâmetros e sem corpo).
 ```json
 [
   {
-    "id": 10,
+    "id": 14,
     "placa": "TST1A23",
     "modelo": "Corolla",
     "anoFabricacao": 2023,
     "quilometragem": 15380,
-    "fabricanteId": 7,
+    "fabricanteId": 9,
     "fabricante": "Toyota Motor",
-    "categoriaId": 6,
+    "categoriaId": 8,
     "categoria": "Sedã"
   },
   {
-    "id": 11,
+    "id": 15,
     "placa": "TST2B34",
     "modelo": "Corolla Cross",
     "anoFabricacao": 2024,
     "quilometragem": 8000,
-    "fabricanteId": 7,
+    "fabricanteId": 9,
     "fabricante": "Toyota Motor",
-    "categoriaId": 7,
+    "categoriaId": 9,
     "categoria": "SUV"
   },
   {
-    "id": 13,
+    "id": 17,
     "placa": "TST4D56",
     "modelo": "HR-V",
     "anoFabricacao": 2023,
     "quilometragem": 12000,
-    "fabricanteId": 8,
+    "fabricanteId": 10,
     "fabricante": "Honda",
-    "categoriaId": 7,
+    "categoriaId": 9,
     "categoria": "SUV"
   }
 ]
@@ -1102,15 +1102,15 @@ Nenhuma (sem parâmetros e sem corpo).
 
 - **Método:** GET
 - **Endpoint:** `/api/Alugueis/filtro/cliente/{clienteId}`
-- **URL chamada:** `http://localhost:5000/api/Alugueis/filtro/cliente/8`
+- **URL chamada:** `http://localhost:5000/api/Alugueis/filtro/cliente/11`
 - **Tabelas/JOIN:** INNER JOIN entre Alugueis, Veiculos e Fabricantes
 - **Objetivo:** Listar o histórico de aluguéis da cliente Maria Exemplo da Silva.
 
 **Entrada:**
 
-Parâmetros: `clienteId` = `8`
+Parâmetros: `clienteId` = `11`
 
-**Resultado esperado:** 200 OK. Somente o aluguel 8, com placa, modelo e fabricante do veículo.
+**Resultado esperado:** 200 OK. Somente o aluguel da cliente (Corolla), com placa, modelo e fabricante do veículo.
 
 **Resultado obtido:** 200 OK
 
@@ -1119,8 +1119,8 @@ Parâmetros: `clienteId` = `8`
 ```json
 [
   {
-    "id": 8,
-    "veiculoId": 10,
+    "id": 10,
+    "veiculoId": 14,
     "placa": "TST1A23",
     "modelo": "Corolla",
     "fabricante": "Toyota Motor",
@@ -1151,7 +1151,7 @@ Parâmetros: `clienteId` = `8`
 
 Parâmetros: `inicio` = `2026-10-01`, `fim` = `2026-10-31`
 
-**Resultado esperado:** 200 OK. Os aluguéis 8 e 9, em ordem de data de início, com nome do cliente e dados do veículo.
+**Resultado esperado:** 200 OK. Os dois aluguéis de outubro (Corolla e Civic), em ordem de data de início, com nome do cliente e dados do veículo.
 
 **Resultado obtido:** 200 OK
 
@@ -1160,10 +1160,10 @@ Parâmetros: `inicio` = `2026-10-01`, `fim` = `2026-10-31`
 ```json
 [
   {
-    "id": 8,
-    "clienteId": 8,
+    "id": 10,
+    "clienteId": 11,
     "cliente": "Maria Exemplo da Silva",
-    "veiculoId": 10,
+    "veiculoId": 14,
     "placa": "TST1A23",
     "modelo": "Corolla",
     "dataInicio": "2026-10-01T09:00:00",
@@ -1173,10 +1173,10 @@ Parâmetros: `inicio` = `2026-10-01`, `fim` = `2026-10-31`
     "valorTotal": 420
   },
   {
-    "id": 9,
-    "clienteId": 9,
+    "id": 11,
+    "clienteId": 12,
     "cliente": "Joao Teste",
-    "veiculoId": 12,
+    "veiculoId": 16,
     "placa": "TST3C45",
     "modelo": "Civic",
     "dataInicio": "2026-10-03T10:00:00",
@@ -1213,7 +1213,7 @@ Nenhuma (sem parâmetros e sem corpo).
 ```json
 [
   {
-    "id": 10,
+    "id": 13,
     "nome": "Ana Ficticia",
     "cpf": "99988877766",
     "email": "ana.ficticia@teste.com"
@@ -1265,7 +1265,7 @@ Corpo:
       "O e-mail informado não é válido."
     ]
   },
-  "traceId": "00-2030f9c84013a95c3ec50ae6e5586d86-b8a7d2f28a33ed2f-00"
+  "traceId": "00-bb1c65823f14d4efb7294e77124768fa-9fb2f1a7a829f483-00"
 }
 ```
 
@@ -1291,7 +1291,7 @@ Corpo:
   "anoFabricacao": 2023,
   "quilometragem": 0,
   "fabricanteId": 999999,
-  "categoriaId": 6
+  "categoriaId": 8
 }
 ```
 
@@ -1324,8 +1324,8 @@ Corpo:
 
 ```json
 {
-  "clienteId": 10,
-  "veiculoId": 12,
+  "clienteId": 13,
+  "veiculoId": 16,
   "dataInicio": "2026-10-05T09:00:00",
   "dataFimPrevista": "2026-10-07T09:00:00",
   "quilometragemInicial": 32000,
@@ -1353,12 +1353,12 @@ Corpo:
 
 - **Método:** DELETE
 - **Endpoint:** `/api/Fabricantes/{id}`
-- **URL chamada:** `http://localhost:5000/api/Fabricantes/7`
+- **URL chamada:** `http://localhost:5000/api/Fabricantes/9`
 - **Objetivo:** Excluir o fabricante Toyota Motor enquanto ainda possui veículos cadastrados.
 
 **Entrada:**
 
-Parâmetros: `id` = `7`
+Parâmetros: `id` = `9`
 
 **Resultado esperado:** 409 Conflict. Conflito, sem excluir o registro.
 
@@ -1407,12 +1407,12 @@ Parâmetros: `inicio` = `2026-10-31`, `fim` = `2026-10-01`
 
 - **Método:** GET
 - **Endpoint:** `/api/Fabricantes/{id}`
-- **URL chamada:** `http://localhost:5000/api/Fabricantes/7`
+- **URL chamada:** `http://localhost:5000/api/Fabricantes/9`
 - **Objetivo:** Consultar pelo ID o fabricante excluído no teste 05, confirmando a exclusão.
 
 **Entrada:**
 
-Parâmetros: `id` = `7`
+Parâmetros: `id` = `9`
 
 **Resultado esperado:** 404 Not Found. Não encontrado, com a mensagem "Fabricante não encontrado."
 
@@ -1440,18 +1440,18 @@ Chamadas feitas pelo Swagger para preparar os dados dos filtros e para a limpeza
 | 4 | POST | `http://localhost:5000/api/Categorias` | `{"nome": "SUV"}` | 201 | 201 |
 | 6 | POST | `http://localhost:5000/api/Clientes` | `{"nome": "Joao Teste", "cpf": "55566677788", "email": "joao.teste@teste.com"}` | 201 | 201 |
 | 7 | POST | `http://localhost:5000/api/Clientes` | `{"nome": "Ana Ficticia", "cpf": "99988877766", "email": "ana.ficticia@teste.com"}` | 201 | 201 |
-| 9 | POST | `http://localhost:5000/api/Veiculos` | `{"placa": "TST2B34", "modelo": "Corolla Cross", "anoFabricacao": 2024, "quilometragem": 8000, "fabricanteId": 7, "categoriaId": 7}` | 201 | 201 |
-| 10 | POST | `http://localhost:5000/api/Veiculos` | `{"placa": "TST3C45", "modelo": "Civic", "anoFabricacao": 2022, "quilometragem": 32000, "fabricanteId": 8, "categoriaId": 6}` | 201 | 201 |
-| 11 | POST | `http://localhost:5000/api/Veiculos` | `{"placa": "TST4D56", "modelo": "HR-V", "anoFabricacao": 2023, "quilometragem": 12000, "fabricanteId": 8, "categoriaId": 7}` | 201 | 201 |
-| 13 | POST | `http://localhost:5000/api/Alugueis` | `{"clienteId": 9, "veiculoId": 12, "dataInicio": "2026-10-03T10:00:00", "dataFimPrevista": "2026-10-08T10:00:00", "quilometragemInicial": 32000, "valorDiaria": 130}` | 201 | 201 |
-| 40 | DELETE | `http://localhost:5000/api/Alugueis/9` | `—` | 204 | 204 |
-| 42 | DELETE | `http://localhost:5000/api/Veiculos/11` | `—` | 204 | 204 |
-| 43 | DELETE | `http://localhost:5000/api/Veiculos/12` | `—` | 204 | 204 |
-| 44 | DELETE | `http://localhost:5000/api/Veiculos/13` | `—` | 204 | 204 |
-| 46 | DELETE | `http://localhost:5000/api/Clientes/9` | `—` | 204 | 204 |
-| 47 | DELETE | `http://localhost:5000/api/Clientes/10` | `—` | 204 | 204 |
-| 49 | DELETE | `http://localhost:5000/api/Categorias/7` | `—` | 204 | 204 |
-| 51 | DELETE | `http://localhost:5000/api/Fabricantes/8` | `—` | 204 | 204 |
+| 9 | POST | `http://localhost:5000/api/Veiculos` | `{"placa": "TST2B34", "modelo": "Corolla Cross", "anoFabricacao": 2024, "quilometragem": 8000, "fabricanteId": 9, "categoriaId": 9}` | 201 | 201 |
+| 10 | POST | `http://localhost:5000/api/Veiculos` | `{"placa": "TST3C45", "modelo": "Civic", "anoFabricacao": 2022, "quilometragem": 32000, "fabricanteId": 10, "categoriaId": 8}` | 201 | 201 |
+| 11 | POST | `http://localhost:5000/api/Veiculos` | `{"placa": "TST4D56", "modelo": "HR-V", "anoFabricacao": 2023, "quilometragem": 12000, "fabricanteId": 10, "categoriaId": 9}` | 201 | 201 |
+| 13 | POST | `http://localhost:5000/api/Alugueis` | `{"clienteId": 12, "veiculoId": 16, "dataInicio": "2026-10-03T10:00:00", "dataFimPrevista": "2026-10-08T10:00:00", "quilometragemInicial": 32000, "valorDiaria": 130}` | 201 | 201 |
+| 40 | DELETE | `http://localhost:5000/api/Alugueis/11` | `—` | 204 | 204 |
+| 42 | DELETE | `http://localhost:5000/api/Veiculos/15` | `—` | 204 | 204 |
+| 43 | DELETE | `http://localhost:5000/api/Veiculos/16` | `—` | 204 | 204 |
+| 44 | DELETE | `http://localhost:5000/api/Veiculos/17` | `—` | 204 | 204 |
+| 46 | DELETE | `http://localhost:5000/api/Clientes/12` | `—` | 204 | 204 |
+| 47 | DELETE | `http://localhost:5000/api/Clientes/13` | `—` | 204 | 204 |
+| 49 | DELETE | `http://localhost:5000/api/Categorias/9` | `—` | 204 | 204 |
+| 51 | DELETE | `http://localhost:5000/api/Fabricantes/10` | `—` | 204 | 204 |
 
 ## 7. Conclusão
 
