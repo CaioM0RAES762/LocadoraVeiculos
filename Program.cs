@@ -2,6 +2,7 @@ using LocadoraVeiculosApi.Data;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,9 @@ builder.Services.AddDbContext<ApplicationContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddControllers();
+
+builder.Services.AddSwaggerGen(options =>
+    options.SwaggerDoc("v1", new OpenApiInfo { Title = "Locadora de Veículos API", Version = "v1" }));
 
 var app = builder.Build();
 
@@ -27,6 +31,9 @@ app.UseExceptionHandler(erro => erro.Run(async context =>
     context.Response.StatusCode = StatusCodes.Status500InternalServerError;
     await context.Response.WriteAsJsonAsync(new { mensagem = "Ocorreu um erro inesperado ao processar a requisição." });
 }));
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.MapControllers();
 
