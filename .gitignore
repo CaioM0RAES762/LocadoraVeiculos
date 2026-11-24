@@ -16,8 +16,7 @@ frontend/test-results/
 .env.local
 *.local
 
-# Artigo: HTML intermediário usado só para imprimir o PDF
-docs/artigo/artigo.html
+# Artigo: cache do gerador Python
 docs/artigo/__pycache__/
 
 # Artigo LaTeX (arquivos auxiliares)
