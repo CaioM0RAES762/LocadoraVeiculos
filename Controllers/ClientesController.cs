@@ -17,11 +17,32 @@ public class ClientesController : ControllerBase
         _context = context;
     }
 
+    // Filtros opcionais: ?nome=ana&cpf=123&email=exemplo. Sem parâmetros, devolve todos os clientes (comportamento original).
     [HttpGet]
-    public async Task<IActionResult> Listar()
+    public async Task<IActionResult> Listar([FromQuery] string? nome, [FromQuery] string? cpf, [FromQuery] string? email)
     {
-        var clientes = await _context.Clientes
-            .AsNoTracking()
+        var consulta = _context.Clientes.AsNoTracking().AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(nome))
+        {
+            var termo = nome.Trim();
+            consulta = consulta.Where(c => c.Nome.Contains(termo));
+        }
+
+        if (!string.IsNullOrWhiteSpace(cpf))
+        {
+            // O CPF é armazenado apenas com dígitos; pontos e traço digitados na busca são ignorados.
+            var digitos = new string(cpf.Where(char.IsDigit).ToArray());
+            consulta = consulta.Where(c => c.Cpf.Contains(digitos));
+        }
+
+        if (!string.IsNullOrWhiteSpace(email))
+        {
+            var termo = email.Trim();
+            consulta = consulta.Where(c => c.Email.Contains(termo));
+        }
+
+        var clientes = await consulta
             .OrderBy(c => c.Nome)
             .ToListAsync();
 

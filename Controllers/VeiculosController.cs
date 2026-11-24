@@ -18,17 +18,59 @@ public class VeiculosController : ControllerBase
         _context = context;
     }
 
+    // Filtros opcionais: ?placa=abc&modelo=onix&fabricanteId=1&categoriaId=2&disponivel=true.
+    // Sem parâmetros, devolve todos os veículos (comportamento original). O campo "disponivel" da resposta é novo.
     [HttpGet]
-    public async Task<IActionResult> Listar()
+    public async Task<IActionResult> Listar(
+        [FromQuery] string? placa,
+        [FromQuery] string? modelo,
+        [FromQuery] int? fabricanteId,
+        [FromQuery] int? categoriaId,
+        [FromQuery] bool? disponivel)
     {
-        var veiculos = await _context.Veiculos
-            .AsNoTracking()
-            .Include(v => v.Fabricante)
-            .Include(v => v.Categoria)
+        var consulta = _context.Veiculos.AsNoTracking().AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(placa))
+        {
+            var termo = placa.Replace("-", "").Trim().ToUpperInvariant();
+            consulta = consulta.Where(v => v.Placa.Contains(termo));
+        }
+
+        if (!string.IsNullOrWhiteSpace(modelo))
+        {
+            var termo = modelo.Trim();
+            consulta = consulta.Where(v => v.Modelo.Contains(termo));
+        }
+
+        if (fabricanteId.HasValue)
+            consulta = consulta.Where(v => v.FabricanteId == fabricanteId.Value);
+
+        if (categoriaId.HasValue)
+            consulta = consulta.Where(v => v.CategoriaId == categoriaId.Value);
+
+        if (disponivel == true)
+            consulta = consulta.Where(v => !_context.Alugueis.Any(a => a.VeiculoId == v.Id && a.DataDevolucao == null));
+        else if (disponivel == false)
+            consulta = consulta.Where(v => _context.Alugueis.Any(a => a.VeiculoId == v.Id && a.DataDevolucao == null));
+
+        var veiculos = await consulta
             .OrderBy(v => v.Modelo)
+            .Select(v => new
+            {
+                v.Id,
+                v.Placa,
+                v.Modelo,
+                v.AnoFabricacao,
+                v.Quilometragem,
+                v.FabricanteId,
+                Fabricante = v.Fabricante.Nome,
+                v.CategoriaId,
+                Categoria = v.Categoria.Nome,
+                Disponivel = !_context.Alugueis.Any(a => a.VeiculoId == v.Id && a.DataDevolucao == null)
+            })
             .ToListAsync();
 
-        return Ok(veiculos.Select(ParaResposta));
+        return Ok(veiculos);
     }
 
     [HttpGet("{id:int}")]
@@ -43,7 +85,9 @@ public class VeiculosController : ControllerBase
         if (veiculo == null)
             return NotFound(new { mensagem = "Veículo não encontrado." });
 
-        return Ok(ParaResposta(veiculo));
+        var disponivel = !await _context.Alugueis.AnyAsync(a => a.VeiculoId == id && a.DataDevolucao == null);
+
+        return Ok(ParaResposta(veiculo, disponivel));
     }
 
     [HttpGet("filtro/fabricante")]
@@ -68,7 +112,8 @@ public class VeiculosController : ControllerBase
                                   v.FabricanteId,
                                   Fabricante = f.Nome,
                                   v.CategoriaId,
-                                  Categoria = c.Nome
+                                  Categoria = c.Nome,
+                                  Disponivel = !_context.Alugueis.Any(x => x.VeiculoId == v.Id && x.DataDevolucao == null)
                               }).ToListAsync();
 
         return Ok(veiculos);
@@ -97,7 +142,8 @@ public class VeiculosController : ControllerBase
                                   v.FabricanteId,
                                   Fabricante = f.Nome,
                                   v.CategoriaId,
-                                  Categoria = c.Nome
+                                  Categoria = c.Nome,
+                                  Disponivel = true
                               }).ToListAsync();
 
         return Ok(veiculos);
@@ -115,7 +161,8 @@ public class VeiculosController : ControllerBase
         _context.Veiculos.Add(veiculo);
         await _context.SaveChangesAsync();
 
-        return CreatedAtAction(nameof(ObterPorId), new { id = veiculo.Id }, ParaResposta(veiculo));
+        // Um veículo recém-cadastrado ainda não possui aluguéis, portanto está disponível.
+        return CreatedAtAction(nameof(ObterPorId), new { id = veiculo.Id }, ParaResposta(veiculo, true));
     }
 
     [HttpPut("{id:int}")]
@@ -177,7 +224,7 @@ public class VeiculosController : ControllerBase
         return null;
     }
 
-    private static object ParaResposta(Veiculo veiculo) => new
+    private static object ParaResposta(Veiculo veiculo, bool disponivel) => new
     {
         veiculo.Id,
         veiculo.Placa,
@@ -187,6 +234,7 @@ public class VeiculosController : ControllerBase
         veiculo.FabricanteId,
         Fabricante = veiculo.Fabricante.Nome,
         veiculo.CategoriaId,
-        Categoria = veiculo.Categoria.Nome
+        Categoria = veiculo.Categoria.Nome,
+        Disponivel = disponivel
     };
 }

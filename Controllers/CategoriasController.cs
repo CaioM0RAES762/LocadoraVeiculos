@@ -17,11 +17,22 @@ public class CategoriasController : ControllerBase
         _context = context;
     }
 
+    // Filtros opcionais: ?id=1&nome=suv. Sem parâmetros, devolve todas as categorias (comportamento original).
     [HttpGet]
-    public async Task<IActionResult> Listar()
+    public async Task<IActionResult> Listar([FromQuery] int? id, [FromQuery] string? nome)
     {
-        var categorias = await _context.Categorias
-            .AsNoTracking()
+        var consulta = _context.Categorias.AsNoTracking().AsQueryable();
+
+        if (id.HasValue)
+            consulta = consulta.Where(c => c.Id == id.Value);
+
+        if (!string.IsNullOrWhiteSpace(nome))
+        {
+            var termo = nome.Trim();
+            consulta = consulta.Where(c => c.Nome.Contains(termo));
+        }
+
+        var categorias = await consulta
             .OrderBy(c => c.Nome)
             .ToListAsync();
 

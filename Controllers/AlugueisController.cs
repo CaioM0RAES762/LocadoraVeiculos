@@ -20,17 +20,69 @@ public class AlugueisController : ControllerBase
         _context = context;
     }
 
+    // Filtros opcionais: ?clienteId=1&veiculoId=2&situacao=Atrasado&inicio=2026-01-01&fim=2026-01-31.
+    // Sem parâmetros, devolve todos os aluguéis (comportamento original). O campo "situacao" da resposta é novo.
     [HttpGet]
-    public async Task<IActionResult> Listar()
+    public async Task<IActionResult> Listar(
+        [FromQuery] int? clienteId,
+        [FromQuery] int? veiculoId,
+        [FromQuery] string? situacao,
+        [FromQuery] DateTime? inicio,
+        [FromQuery] DateTime? fim)
     {
-        var alugueis = await _context.Alugueis
+        SituacaoAluguel? situacaoFiltro = null;
+
+        if (!string.IsNullOrWhiteSpace(situacao))
+        {
+            if (!Enum.TryParse<SituacaoAluguel>(situacao.Trim(), ignoreCase: true, out var valor) || !Enum.IsDefined(valor))
+                return BadRequest(new { mensagem = "A situação informada é inválida. Use EmAndamento, Atrasado ou Devolvido." });
+
+            situacaoFiltro = valor;
+        }
+
+        if (inicio.HasValue && fim.HasValue && fim.Value.Date < inicio.Value.Date)
+            return BadRequest(new { mensagem = "A data final do período não pode ser anterior à data inicial." });
+
+        var agora = DateTime.Now;
+
+        var consulta = _context.Alugueis
             .AsNoTracking()
             .Include(a => a.Cliente)
             .Include(a => a.Veiculo)
+            .AsQueryable();
+
+        if (clienteId.HasValue)
+            consulta = consulta.Where(a => a.ClienteId == clienteId.Value);
+
+        if (veiculoId.HasValue)
+            consulta = consulta.Where(a => a.VeiculoId == veiculoId.Value);
+
+        // O período considera a data de início do aluguel, igual à rota /filtro/periodo.
+        if (inicio.HasValue)
+        {
+            var dataInicial = inicio.Value.Date;
+            consulta = consulta.Where(a => a.DataInicio >= dataInicial);
+        }
+
+        if (fim.HasValue)
+        {
+            var dataFinalExclusiva = fim.Value.Date.AddDays(1);
+            consulta = consulta.Where(a => a.DataInicio < dataFinalExclusiva);
+        }
+
+        consulta = situacaoFiltro switch
+        {
+            SituacaoAluguel.Devolvido => consulta.Where(a => a.DataDevolucao != null),
+            SituacaoAluguel.Atrasado => consulta.Where(a => a.DataDevolucao == null && a.DataFimPrevista < agora),
+            SituacaoAluguel.EmAndamento => consulta.Where(a => a.DataDevolucao == null && a.DataFimPrevista >= agora),
+            _ => consulta
+        };
+
+        var alugueis = await consulta
             .OrderByDescending(a => a.DataInicio)
             .ToListAsync();
 
-        return Ok(alugueis.Select(ParaResposta));
+        return Ok(alugueis.Select(a => ParaResposta(a, agora)));
     }
 
     [HttpGet("{id:int}")]
@@ -45,7 +97,7 @@ public class AlugueisController : ControllerBase
         if (aluguel == null)
             return NotFound(new { mensagem = "Aluguel não encontrado." });
 
-        return Ok(ParaResposta(aluguel));
+        return Ok(ParaResposta(aluguel, DateTime.Now));
     }
 
     [HttpGet("filtro/cliente/{clienteId:int}")]
@@ -53,6 +105,8 @@ public class AlugueisController : ControllerBase
     {
         if (!await _context.Clientes.AnyAsync(c => c.Id == clienteId))
             return NotFound(new { mensagem = "Cliente não encontrado." });
+
+        var agora = DateTime.Now;
 
         // INNER JOIN entre Alugueis, Veiculos e Fabricantes
         var alugueis = await (from a in _context.Alugueis
@@ -73,7 +127,12 @@ public class AlugueisController : ControllerBase
                                   a.QuilometragemInicial,
                                   a.QuilometragemFinal,
                                   a.ValorDiaria,
-                                  a.ValorTotal
+                                  a.ValorTotal,
+                                  Situacao = a.DataDevolucao != null
+                                      ? nameof(SituacaoAluguel.Devolvido)
+                                      : a.DataFimPrevista < agora
+                                          ? nameof(SituacaoAluguel.Atrasado)
+                                          : nameof(SituacaoAluguel.EmAndamento)
                               }).ToListAsync();
 
         return Ok(alugueis);
@@ -87,6 +146,7 @@ public class AlugueisController : ControllerBase
 
         var dataInicial = inicio.Date;
         var dataFinalExclusiva = fim.Date.AddDays(1);
+        var agora = DateTime.Now;
 
         // INNER JOIN entre Alugueis, Clientes e Veiculos
         var alugueis = await (from a in _context.Alugueis
@@ -106,7 +166,12 @@ public class AlugueisController : ControllerBase
                                   a.DataFimPrevista,
                                   a.DataDevolucao,
                                   a.ValorDiaria,
-                                  a.ValorTotal
+                                  a.ValorTotal,
+                                  Situacao = a.DataDevolucao != null
+                                      ? nameof(SituacaoAluguel.Devolvido)
+                                      : a.DataFimPrevista < agora
+                                          ? nameof(SituacaoAluguel.Atrasado)
+                                          : nameof(SituacaoAluguel.EmAndamento)
                               }).ToListAsync();
 
         return Ok(alugueis);
@@ -124,7 +189,7 @@ public class AlugueisController : ControllerBase
         _context.Alugueis.Add(aluguel);
         await _context.SaveChangesAsync();
 
-        return CreatedAtAction(nameof(ObterPorId), new { id = aluguel.Id }, ParaResposta(aluguel));
+        return CreatedAtAction(nameof(ObterPorId), new { id = aluguel.Id }, ParaResposta(aluguel, DateTime.Now));
     }
 
     [HttpPut("{id:int}")]
@@ -202,7 +267,17 @@ public class AlugueisController : ControllerBase
         return null;
     }
 
-    private static object ParaResposta(Aluguel aluguel) => new
+    private static string CalcularSituacao(Aluguel aluguel, DateTime agora)
+    {
+        if (aluguel.DataDevolucao.HasValue)
+            return nameof(SituacaoAluguel.Devolvido);
+
+        return aluguel.DataFimPrevista < agora
+            ? nameof(SituacaoAluguel.Atrasado)
+            : nameof(SituacaoAluguel.EmAndamento);
+    }
+
+    private static object ParaResposta(Aluguel aluguel, DateTime agora) => new
     {
         aluguel.Id,
         aluguel.ClienteId,
@@ -216,6 +291,7 @@ public class AlugueisController : ControllerBase
         aluguel.QuilometragemInicial,
         aluguel.QuilometragemFinal,
         aluguel.ValorDiaria,
-        aluguel.ValorTotal
+        aluguel.ValorTotal,
+        Situacao = CalcularSituacao(aluguel, agora)
     };
 }

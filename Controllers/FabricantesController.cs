@@ -17,11 +17,22 @@ public class FabricantesController : ControllerBase
         _context = context;
     }
 
+    // Filtros opcionais: ?id=1&nome=ford. Sem parâmetros, devolve todos os fabricantes (comportamento original).
     [HttpGet]
-    public async Task<IActionResult> Listar()
+    public async Task<IActionResult> Listar([FromQuery] int? id, [FromQuery] string? nome)
     {
-        var fabricantes = await _context.Fabricantes
-            .AsNoTracking()
+        var consulta = _context.Fabricantes.AsNoTracking().AsQueryable();
+
+        if (id.HasValue)
+            consulta = consulta.Where(f => f.Id == id.Value);
+
+        if (!string.IsNullOrWhiteSpace(nome))
+        {
+            var termo = nome.Trim();
+            consulta = consulta.Where(f => f.Nome.Contains(termo));
+        }
+
+        var fabricantes = await consulta
             .OrderBy(f => f.Nome)
             .ToListAsync();
 
