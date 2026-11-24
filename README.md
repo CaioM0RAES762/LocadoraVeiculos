@@ -3,9 +3,11 @@
 Sistema de gestão de uma locadora de veículos: **banco SQL Server** modelado com Entity Framework Core (Etapa 1), **API REST em
 ASP.NET Core** (Etapa 1) e **frontend React + TypeScript** integrado à API real (Etapa 2).
 
-> **Status da Etapa 2:** frontend, integração, filtros, wireframes, testes, relatório e roteiro do vídeo prontos.
-> **Pendentes (dependem do aluno):** gravar o vídeo, publicar os wireframes no Figma e preencher os dados acadêmicos
-> marcados como `[PREENCHER: ...]` — veja [docs/checklist-entrega.md](docs/checklist-entrega.md).
+> **Autor:** Caio Moraes da Silva — Pontifícia Universidade Católica de Minas Gerais — PUC Minas, Unidade Betim
+> (disciplina: Tecnologias para Análise e Desenvolvimento de Sistemas) · 1556029@pucminas.edu.br
+>
+> **Status da Etapa 2:** frontend, integração, filtros, wireframes, testes, relatório (modelo da SBC) e roteiro do vídeo prontos.
+> **Pendência única:** gravação e envio do vídeo de apresentação (3 a 5 minutos) — veja [docs/checklist-entrega.md](docs/checklist-entrega.md).
 
 ## Sumário
 
@@ -179,15 +181,26 @@ continua sendo calculado **somente pela API**; o frontend exibe apenas uma *esti
 ## Wireframes e Figma
 
 Os 20 wireframes de alta fidelidade (desktop 1440 px) cobrem layout/navegação, painel, as cinco entidades (lista e formulário), as consultas,
-a devolução, a confirmação de exclusão e os estados de carregamento, vazio e erro. Estão em [docs/wireframes](docs/wireframes) (PNG) e
-[docs/wireframes/svg](docs/wireframes/svg) (SVG editável). Eles são gerados por `npm run wireframes` (em `frontend/`).
+a devolução, a confirmação de exclusão e os estados de carregamento, vazio e erro. Estão disponíveis:
+
+- **no Figma:** <https://www.figma.com/design/h5DPiA2ZDKuXXmZ4pPTxMg/Untitled?node-id=1-3&t=qwLSrYq5Za5AQfFy-1>
+- **em PNG:** [docs/wireframes](docs/wireframes)
+- **em SVG editável:** [docs/wireframes/svg](docs/wireframes/svg)
+
+Os PNG e SVG são gerados por `npm run wireframes` (em `frontend/`), a partir de uma descrição única de layout.
 
 ![Wireframe da listagem de aluguéis](docs/wireframes/12-alugueis-lista.png)
 
-**Link do Figma: [PREENCHER: link compartilhável do arquivo no Figma]** — *indisponível nesta entrega.* A integração com o Figma recusou a
-conexão por falta de login, então nenhum arquivo foi criado lá e nenhum link foi inventado. Para publicar: crie um arquivo de design no Figma,
-arraste os arquivos de `docs/wireframes/svg/` para o canvas (cada SVG vira um quadro editável), configure o compartilhamento e cole o link aqui e
-em `docs/artigo/artigo.tex`/`artigo.docx`.
+## Relatório acadêmico (modelo oficial da SBC)
+
+O relatório está em [docs/artigo](docs/artigo): `artigo.tex` (formatado com o modelo SBC, usando `sbc-template.sty` e `sbc.bst` desta pasta),
+`referencias.bib`, `imagens/`, `artigo.pdf` e `artigo.docx`. O texto vem de uma fonte única (`conteudo.py`), que `gerar_artigo.py` converte em `.tex`, `.bib` e `.docx`.
+
+```powershell
+cd docs\artigo
+python gerar_artigo.py                                  # regenera artigo.tex, referencias.bib e artigo.docx
+pdflatex artigo; bibtex artigo; pdflatex artigo; pdflatex artigo   # gera artigo.pdf
+```
 
 ## Testes e build
 
@@ -227,8 +240,9 @@ As imagens de [docs/evidencias/frontend](docs/evidencias/frontend) foram geradas
 
 ## Autoria e entrega
 
-- Autor: **[PREENCHER: nome do aluno]** · Instituição: **[PREENCHER: instituição]** · Disciplina: **[PREENCHER: disciplina]**
-- Repositório GitHub: **[PREENCHER: URL do repositório]** — o repositório Git local já possui o histórico de commits; falta criar/vincular o
-  repositório no GitHub (`git remote add origin <url>` e `git push -u origin main`).
+- Autor: **Caio Moraes da Silva** · Instituição: **Pontifícia Universidade Católica de Minas Gerais — PUC Minas, Unidade Betim** ·
+  Disciplina: **Tecnologias para Análise e Desenvolvimento de Sistemas** · E-mail acadêmico: 1556029@pucminas.edu.br
+- Repositório GitHub: <https://github.com/CaioM0RAES762/LocadoraVeiculos.git> (branch `main`, histórico de commits pequenos e progressivos).
+- Wireframes no Figma: <https://www.figma.com/design/h5DPiA2ZDKuXXmZ4pPTxMg/Untitled?node-id=1-3&t=qwLSrYq5Za5AQfFy-1>
 - Entrega: relatório (`docs/artigo/artigo.pdf`), repositório compactado (.zip) e vídeo de 3 a 5 minutos (roteiro em
   [docs/roteiro-video.md](docs/roteiro-video.md)). Confira tudo em [docs/checklist-entrega.md](docs/checklist-entrega.md).

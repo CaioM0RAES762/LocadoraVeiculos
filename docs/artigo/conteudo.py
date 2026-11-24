@@ -1,36 +1,35 @@
 # -*- coding: utf-8 -*-
 """
-Conteúdo único do relatório. `gerar_artigo.py` converte este conteúdo em artigo.tex (padrão SBC) e artigo.docx,
-mantendo os dois idênticos. Marcações inline: **negrito**, *itálico*, `código`, {fig:id}, {tab:id}, {cite:chave}.
+Conteúdo único do relatório. `gerar_artigo.py` converte este conteúdo em artigo.tex (modelo oficial da SBC), artigo.docx
+e uma versão HTML usada para conferência. Marcações inline: **negrito**, *itálico*, `código`, {fig:id}, {tab:id},
+{cite:chave} e {url:endereço}.
 """
 
 TITULO = "Locadora de Veículos: integração entre frontend React, API ASP.NET Core e SQL Server"
 
-AUTOR = "[PREENCHER: nome do aluno]"
-INSTITUICAO = "[PREENCHER: instituição]"
-EMAIL = "[PREENCHER: e-mail do aluno]"
-DISCIPLINA = "[PREENCHER: disciplina]"
+AUTOR = "Caio Moraes da Silva"
+INSTITUICAO = "Pontifícia Universidade Católica de Minas Gerais — PUC Minas, Unidade Betim"
+EMAIL = "1556029@pucminas.edu.br"
+DISCIPLINA = "Tecnologias para Análise e Desenvolvimento de Sistemas"
+URL_FIGMA = "https://www.figma.com/design/h5DPiA2ZDKuXXmZ4pPTxMg/Untitled?node-id=1-3&t=qwLSrYq5Za5AQfFy-1"
+URL_REPOSITORIO = "https://github.com/CaioM0RAES762/LocadoraVeiculos.git"
 
 RESUMO = (
-    "Este trabalho descreve a segunda etapa do sistema de uma locadora de veículos: um frontend em React e TypeScript integrado, "
-    "por meio de uma API REST em ASP.NET Core, a um banco SQL Server modelado com Entity Framework Core na primeira etapa. "
-    "São apresentados o problema, a modelagem com cinco entidades, a arquitetura em camadas, 20 wireframes de alta fidelidade, "
-    "as telas de cadastro, edição, exclusão e pesquisa de todas as entidades e as consultas SQL expostas como filtros e visualizações, "
-    "com destaque para veículos disponíveis e aluguéis por período. Todas as telas usam a API e o banco reais; mocks existem somente em testes automatizados. "
-    "A validação inclui 82 testes de telas e serviços, 8 testes ponta a ponta com o SQL Server e varredura de acessibilidade. "
-    "O resultado é um sistema funcional com CRUD completo, filtros em pelo menos dois campos por entidade e tratamento de erros compreensível ao usuário."
+    "Este trabalho apresenta a segunda etapa de um sistema para locadora de veículos: um frontend em React e TypeScript integrado, "
+    "por meio de uma API REST em ASP.NET Core, a um banco SQL Server modelado com Entity Framework Core. "
+    "Descrevem-se a modelagem, a arquitetura, 20 wireframes, o CRUD das cinco entidades, os filtros e duas consultas SQL exibidas nas telas "
+    "(veículos disponíveis e aluguéis por período). A solução usa a API e o banco reais e foi validada com 82 testes de telas, "
+    "8 testes ponta a ponta e verificação de acessibilidade."
 )
-PALAVRAS_CHAVE = "locadora de veículos; React; ASP.NET Core; SQL Server; API REST; Entity Framework Core"
+PALAVRAS_CHAVE = "locadora de veículos; React; ASP.NET Core; SQL Server; API REST"
 
 ABSTRACT = (
-    "This paper describes the second stage of a vehicle rental system: a React and TypeScript frontend integrated, through an ASP.NET Core REST API, "
-    "with a SQL Server database modeled with Entity Framework Core in the first stage. It presents the problem, the five-entity data model, the layered architecture, "
-    "20 high-fidelity wireframes, the create, edit, delete and search screens for every entity, and the SQL queries exposed as filters and views, "
-    "especially available vehicles and rentals by period. All screens use the real API and database; mocks exist only in automated tests. "
-    "Validation includes 82 screen and service tests, 8 end-to-end tests against SQL Server and an accessibility scan. "
-    "The result is a working system with complete CRUD, filters on at least two fields per entity and user-friendly error handling."
+    "This paper presents the second stage of a vehicle rental system: a React and TypeScript frontend integrated, through an ASP.NET Core REST API, "
+    "with a SQL Server database modeled with Entity Framework Core. It describes the data model, the architecture, 20 wireframes, "
+    "CRUD for the five entities, filters and two SQL queries shown on screen (available vehicles and rentals by period). "
+    "The solution uses the real API and database and was validated with 82 screen tests, 8 end-to-end tests and an accessibility scan."
 )
-KEYWORDS = "vehicle rental; React; ASP.NET Core; SQL Server; REST API; Entity Framework Core"
+KEYWORDS = "vehicle rental; React; ASP.NET Core; SQL Server; REST API"
 
 # Cada bloco: (tipo, ...). Tipos: h1, h2, p, ul, ol, fig, tab, code
 CORPO = [
@@ -40,8 +39,8 @@ CORPO = [
           "Um sistema com banco de dados e interface web reduz esses erros ao concentrar as regras em um só lugar."),
     ("p", "Este trabalho corresponde à **Etapa 2** de um projeto em duas partes. Na Etapa 1 foram construídos o modelo de dados, as migrations e uma API REST em ASP.NET Core com "
           "Entity Framework Core e SQL Server, documentada e testada pelo Swagger. Na Etapa 2 foi desenvolvido o frontend que consome essa API, com wireframes, telas "
-          "de CRUD para todas as entidades, filtros e visualizações baseados nas consultas do banco. O trabalho é individual e o código está versionado em Git "
-          "(repositório: [PREENCHER: URL do repositório])."),
+          "de CRUD para todas as entidades, filtros e visualizações baseados nas consultas do banco. O trabalho é individual, foi desenvolvido na disciplina "
+          "Tecnologias para Análise e Desenvolvimento de Sistemas e o código está versionado em Git (repositório: {url:https://github.com/CaioM0RAES762/LocadoraVeiculos.git})."),
     ("p", "O relatório segue o modelo de publicação de artigos da SBC {cite:sbc}. O restante do texto segue a ordem do desenvolvimento: problema e objetivos (Seção 2), modelagem (3), arquitetura e tecnologias (4), wireframes (5), "
           "telas (6), integração com a API (7), CRUD (8), filtros (9), as duas consultas de demonstração (10 e 11), testes (12), dificuldades (13) e conclusão (14)."),
 
@@ -97,11 +96,11 @@ CORPO = [
           "as consultas de clientes sem aluguéis, veículos disponíveis, veículos por fabricante, aluguéis por período e histórico por cliente; a janela de devolução; a confirmação de exclusão; "
           "e os estados de carregamento, lista vazia, erro e avisos. Cada quadro traz anotações numeradas e uma faixa de notas que relaciona a tela às rotas da API."),
     ("p", "Os quadros são gerados por um script (`npm run wireframes`) a partir de descrições de layout e exportados em SVG editável e PNG, o que permite recriá-los de forma consistente "
-          "sempre que uma tela mudar. As imagens estão em `docs/wireframes/` e os SVGs, preparados para importação no Figma, em `docs/wireframes/svg/`."),
-    ("p", "**Link do Figma: [PREENCHER: link compartilhável do arquivo no Figma].** O link não consta nesta versão porque a integração com o Figma recusou a conexão por falta de autenticação "
-          "e nenhum arquivo foi criado nessa ferramenta. Para publicar, basta arrastar os SVGs para um arquivo de design do Figma e compartilhar o link."),
-    ("fig", "wflayout", "wf-layout.png", "Wireframe do layout geral e da navegação (menu, trilha, abas, filtros e resultados), com esboço da versão móvel.", 12.5),
-    ("fig", "wfalugueis", "wf-alugueis-lista.png", "Wireframe da listagem de aluguéis, que foi seguido na tela implementada ({fig:telaalugueis}).", 12.5),
+          "sempre que uma tela mudar. As imagens PNG estão em `docs/wireframes/` e os arquivos SVG editáveis em `docs/wireframes/svg/`."),
+    ("p", "Os 20 wireframes estão disponíveis **no Figma**, em **PNG** e em **SVG editável**. O arquivo do Figma pode ser acessado em:"),
+    ("p", "{url:https://www.figma.com/design/h5DPiA2ZDKuXXmZ4pPTxMg/Untitled?node-id=1-3&t=qwLSrYq5Za5AQfFy-1}"),
+    ("fig", "wflayout", "wf-layout.png", "Wireframe do layout geral e da navegação (menu, trilha, abas, filtros e resultados), com esboço da versão móvel.", 11.5),
+    ("fig", "wfalugueis", "wf-alugueis-lista.png", "Wireframe da listagem de aluguéis, que foi seguido na tela implementada ({fig:telaalugueis}).", 11.5),
     ("tab", "wftelas", "Correspondência entre wireframes e telas implementadas.", ["Wireframe", "Tela / rota", "Captura"], [
         ["01 Painel", "`/`", "{fig:telapainel}"],
         ["02–05 Fabricantes e categorias", "`/fabricantes`, `/categorias` (lista, novo, editar)", "{fig:telavalidacao}, {fig:telaconfirmar}"],
@@ -117,7 +116,7 @@ CORPO = [
           "Em telas estreitas o menu vira um painel recolhível acionado por botão e as tabelas se transformam em cartões. O painel inicial ({fig:telapainel}) exibe indicadores calculados "
           "com listas reais da API (fabricantes, categorias, clientes, veículos, veículos disponíveis, aluguéis em andamento e atrasados), atalhos de cadastro, os aluguéis em aberto "
           "e atalhos para as consultas."),
-    ("fig", "telapainel", "tela-painel.png", "Painel inicial com indicadores lidos da API e do SQL Server.", 12.5),
+    ("fig", "telapainel", "tela-painel.png", "Painel inicial com indicadores lidos da API e do SQL Server.", 11.5),
     ("h2", "Componentes e padrões"),
     ("p", "A interface é composta por componentes reutilizáveis: botões, campos com rótulo e mensagem de erro associados, tabela responsiva, selos de situação, abas de consulta, "
           "barra de filtros, diálogos modais (elemento nativo `<dialog>` {cite:mdndialog}), avisos de sucesso e erro e estados de carregamento, vazio e erro. "
@@ -138,7 +137,7 @@ CORPO = [
     ("p", "O cliente trata `200`, `201`, `204`, `400`, `404`, `409` e `500`, além de falha de rede, API indisponível e JSON inválido. Respostas `400` no formato `ValidationProblemDetails` são convertidas "
           "em mensagens por campo (as chaves vêm em PascalCase no corpo e em camelCase na query string, e são normalizadas); mensagens `{ \"mensagem\": ... }` são exibidas como estão. "
           "Um erro `5xx` sem corpo JSON, típico do proxy sem API, vira \"Não foi possível conectar à API\" ({fig:telaapi}). Os componentes oferecem a ação \"Tentar novamente\"."),
-    ("fig", "telaapi", "tela-api-indisponivel.png", "Mensagem exibida quando a API está indisponível, com opção de tentar novamente.", 12.0),
+    ("fig", "telaapi", "tela-api-indisponivel.png", "Mensagem exibida quando a API está indisponível, com opção de tentar novamente.", 11.0),
     ("h2", "Alterações mínimas no backend"),
     ("p", "Para a integração foram feitas somente alterações aditivas, sem quebrar o contrato da Etapa 1 e sem alterar o esquema do banco:"),
     ("ol", [
@@ -146,30 +145,30 @@ CORPO = [
         "Como o tratador global de exceções limpa os cabeçalhos da resposta, a política é reaplicada nele para que o navegador consiga ler as mensagens `409` e `500`;",
         "**filtros opcionais por query string** nos `GET` de listagem (por exemplo `GET /api/Veiculos?placa=abc&disponivel=true`), de modo que o filtro seja executado no banco e não no navegador;",
         "**campos derivados**: `disponivel` nas respostas de veículo e `situacao` (`EmAndamento`, `Atrasado` ou `Devolvido`) nas de aluguel, calculados na consulta;",
-        "o `.csproj` passou a ignorar a pasta `frontend/` na compilação e o `dotnet-ef` foi registrado como ferramenta local do projeto.",
+        "O `.csproj` passou a ignorar a pasta `frontend/` na compilação e o `dotnet-ef` foi registrado como ferramenta local do projeto.",
     ]),
 
     ("h1", "Operações CRUD"),
     ("p", "As cinco entidades possuem listagem, cadastro, edição e exclusão, com carregamento, estado vazio, validação de formulário, mensagem de sucesso ou erro e atualização da lista após cada alteração. "
           "A validação no navegador espelha as regras da API apenas para dar retorno imediato; as mensagens da API continuam sendo exibidas no formulário quando ocorrem."),
-    ("fig", "telavalidacao", "tela-validacao.png", "Validação de formulário: o resumo de erros recebe o foco e o campo é marcado como inválido.", 12.0),
+    ("fig", "telavalidacao", "tela-validacao.png", "Validação de formulário: o resumo de erros recebe o foco e o campo é marcado como inválido.", 11.0),
     ("ul", [
         "**Fabricantes e categorias:** formulário com o campo nome; exclusão recusada com `409` quando há veículos vinculados.",
         "**Clientes:** nome, CPF com máscara (000.000.000-00; a API recebe apenas os 11 dígitos) e e-mail; CPF ou e-mail duplicados retornam `409` ({fig:telaclienteform}).",
         "**Veículos:** placa (ABC1234, ABC-1234 ou ABC1D23), modelo, ano, quilometragem e seleção de fabricante e categoria carregados da API.",
         "**Aluguéis:** cliente e veículo carregados da API (em um novo aluguel, apenas veículos disponíveis pela rota `/filtro/disponiveis`), datas, quilometragens e diária; o valor total é sempre o retornado pela API.",
     ]),
-    ("fig", "telaclienteform", "tela-clientes-form.png", "Formulário de cliente com CPF formatado automaticamente.", 12.0),
+    ("fig", "telaclienteform", "tela-clientes-form.png", "Formulário de cliente com CPF formatado automaticamente.", 11.0),
     ("p", "Toda exclusão pede confirmação em um diálogo modal ({fig:telaconfirmar}). Se a API recusar por vínculos, a mensagem de conflito aparece em um aviso e nada é alterado ({fig:tela409}). "
           "A ordem de exclusão respeita as chaves estrangeiras: aluguéis, veículos, clientes e, por fim, categorias e fabricantes."),
-    ("fig", "telaconfirmar", "tela-confirmar-exclusao.png", "Confirmação antes de excluir um registro.", 12.0),
-    ("fig", "tela409", "tela-conflito-409.png", "Conflito 409: o fabricante possui veículos vinculados e não pode ser excluído.", 12.0),
+    ("fig", "telaconfirmar", "tela-confirmar-exclusao.png", "Confirmação antes de excluir um registro.", 11.0),
+    ("fig", "tela409", "tela-conflito-409.png", "Conflito 409: o fabricante possui veículos vinculados e não pode ser excluído.", 11.0),
     ("h2", "Registro de devolução"),
     ("p", "A API só oferece `PUT` completo para alterar um aluguel. A janela de devolução ({fig:teladevolucao}) carrega o aluguel, pede data e hora e quilometragem final e envia o `PUT` com os dados "
           "atuais e a devolução preenchida. Em seguida lê novamente o aluguel e informa o valor total calculado pela API ({fig:teladevolucaores}). A regra de cobrança fica no backend: cada dia iniciado conta como "
           "uma diária, com no mínimo uma. O frontend mostra apenas uma **estimativa**, identificada como tal, para orientar o usuário antes de confirmar."),
-    ("fig", "teladevolucao", "tela-devolucao-janela.png", "Janela de devolução com estimativa visual identificada como tal.", 12.0),
-    ("fig", "teladevolucaores", "tela-devolucao-resultado.png", "Resultado da devolução: situação \"Devolvido\" e valor total calculado pela API (4 diárias de R$ 150,00).", 12.0),
+    ("fig", "teladevolucao", "tela-devolucao-janela.png", "Janela de devolução com estimativa visual identificada como tal.", 11.0),
+    ("fig", "teladevolucaores", "tela-devolucao-resultado.png", "Resultado da devolução: situação \"Devolvido\" e valor total calculado pela API (4 diárias de R$ 150,00).", 11.0),
 
     ("h1", "Filtros"),
     ("p", "Cada entidade oferece filtros em pelo menos dois campos ({tab:filtros}). O estado dos filtros e o tipo de consulta ficam na URL, o que preserva a consulta ao recarregar a página, "
@@ -181,10 +180,10 @@ CORPO = [
         ["Veículo", "placa, modelo, fabricante, categoria, disponibilidade", "`/api/Veiculos/filtro/disponiveis`; `/api/Veiculos/filtro/fabricante?nome=`"],
         ["Aluguel", "cliente, veículo, situação, data inicial e final", "`/api/Alugueis/filtro/periodo?inicio=&fim=`; `/api/Alugueis/filtro/cliente/{id}`"],
     ], [2.2, 6.0, 7.2]),
-    ("fig", "telaveiculosfiltros", "tela-veiculos-filtros.png", "Filtros combinados em veículos: fabricante e disponibilidade, enviados à API como parâmetros.", 12.0),
-    ("fig", "telaclientes", "tela-clientes-sem-alugueis.png", "Clientes sem aluguéis (consulta LEFT JOIN) com a rota exibida.", 12.0),
-    ("fig", "telaveiculos", "tela-veiculos-fabricante.png", "Veículos por fabricante (INNER JOIN): rota com o nome informado e resultados.", 12.0),
-    ("fig", "telahistorico", "tela-alugueis-historico.png", "Histórico de aluguéis de um cliente, acessado pelo botão Histórico na lista de clientes.", 12.0),
+    ("fig", "telaveiculosfiltros", "tela-veiculos-filtros.png", "Filtros combinados em veículos: fabricante e disponibilidade, enviados à API como parâmetros.", 11.0),
+    ("fig", "telaclientes", "tela-clientes-sem-alugueis.png", "Clientes sem aluguéis (consulta LEFT JOIN) com a rota exibida.", 11.0),
+    ("fig", "telaveiculos", "tela-veiculos-fabricante.png", "Veículos por fabricante (INNER JOIN): rota com o nome informado e resultados.", 11.0),
+    ("fig", "telahistorico", "tela-alugueis-historico.png", "Histórico de aluguéis de um cliente, acessado pelo botão Histórico na lista de clientes.", 11.0),
 
     ("h1", "Consulta 1: veículos disponíveis"),
     ("p", "**Banco.** Um veículo está disponível quando não existe aluguel em aberto para ele. A consulta faz um `LEFT JOIN` entre Veículos e os aluguéis sem devolução e mantém as linhas sem correspondência; "
@@ -201,7 +200,7 @@ CORPO = [
           "**Chamada do frontend.** A aba Disponíveis da tela de veículos chama `veiculosApi.listarDisponiveis()`, que usa o cliente HTTP central. "
           "**Resultado.** Com os dados de demonstração a consulta retornou 10 veículos, número idêntico ao obtido executando o SQL acima diretamente no SQL Server ({fig:teladisponiveis}). "
           "Após registrar um aluguel para um desses veículos, ele deixa de aparecer na aba, e volta a aparecer após a devolução; esse comportamento é verificado nos testes ponta a ponta."),
-    ("fig", "teladisponiveis", "tela-veiculos-disponiveis.png", "Consulta 1 no frontend: aba Disponíveis, rota chamada e 10 resultados.", 12.5),
+    ("fig", "teladisponiveis", "tela-veiculos-disponiveis.png", "Consulta 1 no frontend: aba Disponíveis, rota chamada e 10 resultados.", 11.5),
 
     ("h1", "Consulta 2: aluguéis por período"),
     ("p", "**Banco.** A consulta lista os aluguéis iniciados dentro de um intervalo, com cliente e veículo, por meio de dois `INNER JOIN`. A data final é inclusiva; por isso o limite superior "
@@ -217,8 +216,8 @@ CORPO = [
           "**Chamada do frontend.** A aba Por período exige as duas datas e chama `alugueisApi.listarPorPeriodo(inicio, fim)`. **Resultado.** Para o período de 25/09/2026 a 24/11/2026 a rota retornou 13 aluguéis, "
           "o mesmo total do SQL executado no banco ({fig:telaperiodo}). Cada linha mostra cliente, veículo, datas, situação e o valor total calculado pela API, e permite editar, excluir "
           "ou, se estiver em aberto, registrar a devolução."),
-    ("fig", "telaperiodo", "tela-alugueis-periodo.png", "Consulta 2 no frontend: aluguéis por período, com a rota, o intervalo e 13 resultados.", 12.5),
-    ("fig", "telaalugueis", "tela-alugueis-lista.png", "Tela de aluguéis implementada a partir do wireframe da {fig:wfalugueis}: filtros combinados, situação e ações por linha.", 12.5),
+    ("fig", "telaperiodo", "tela-alugueis-periodo.png", "Consulta 2 no frontend: aluguéis por período, com a rota, o intervalo e 13 resultados.", 11.5),
+    ("fig", "telaalugueis", "tela-alugueis-lista.png", "Tela de aluguéis implementada a partir do wireframe da {fig:wfalugueis}: filtros combinados, situação e ações por linha.", 11.5),
 
     ("h1", "Testes e resultados"),
     ("p", "Os testes cobrem três níveis. **Telas e serviços** (Vitest e Testing Library): renderizam a aplicação real com uma API falsa, apenas nos testes, para verificar listagens, filtros, formulários, "
@@ -237,7 +236,7 @@ CORPO = [
         ["API da Etapa 1 (Swagger)", "`docs/relatorio-testes.md`", "36 testes aprovados (04/10/2026)"],
     ], [5.2, 4.6, 5.6]),
     ("p", "Ambiente: Windows 11, SQL Server 2025 (instância padrão), SDK .NET 10 executando o projeto `net9.0` com `DOTNET_ROLL_FORWARD`, Node.js 24 e Microsoft Edge para os testes de navegador. "
-          "Limitações: o backend não tem suíte automatizada própria (foi verificado manualmente e indiretamente pelos testes ponta a ponta) o `artigo.tex` não pôde ser compilado e o `artigo.docx` não pôde ser conferido no Word neste ambiente (Seção 13)."),
+          "Limitação: o backend não tem suíte automatizada própria; foi verificado manualmente e, indiretamente, pelos testes ponta a ponta."),
 
     ("h1", "Dificuldades encontradas"),
     ("ul", [
@@ -249,46 +248,45 @@ CORPO = [
         "**Devolução com `PUT` completo.** Como não há endpoint específico, a tela reenvia todos os dados do aluguel com a devolução e depois relê o valor total.",
         "**Tabelas largas.** A tabela de aluguéis tinha colunas demais para 1366 px; as datas foram agrupadas em uma coluna \"Período\" e, em telas estreitas, as linhas viram cartões.",
         "**Regras de pureza do React.** O lint dos hooks proíbe alterar estado de forma síncrona em efeitos; o carregamento foi derivado de uma chave de consulta, sem efeitos adicionais.",
-        "**Ferramentas indisponíveis.** O Figma recusou a conexão por falta de login e não há LaTeX instalado. Os wireframes foram gerados em SVG/PNG (prontos para o Figma). O relatório nasce de um único "
-        "conteúdo (`conteudo.py`) que gera o `artigo.tex` (escrito para `pdflatex` e `bibtex`, mas **não compilado** aqui), o `artigo.docx` e uma versão HTML, impressa em PDF pelo navegador. "
-        "O PDF entregue foi conferido visualmente página a página; o `.docx` foi gerado por script e não pôde ser aberto no Word para conferência.",
+        "**Consistência dos wireframes.** Manter 20 quadros fiéis às telas à mão seria trabalhoso e sujeito a divergências. Por isso eles são gerados por script em SVG e PNG, o que permite "
+        "regenerá-los e reimportá-los no Figma quando uma tela muda.",
     ]),
 
     ("h1", "Conclusão"),
     ("p", "O trabalho entregou um frontend completo, integrado à API e ao SQL Server reais, com CRUD das cinco entidades, filtros em todas as telas, as consultas SQL da Etapa 1 visíveis na interface, "
           "wireframes de alta fidelidade, testes automatizados em três níveis e tratamento de erros compreensível. As alterações no backend foram mínimas e compatíveis com a Etapa 1, e o esquema do banco não mudou."),
-    ("p", "Como próximos passos, destacam-se a publicação dos wireframes no Figma, a gravação do vídeo de apresentação, uma suíte automatizada para o backend, paginação das listagens e, fora do escopo atual, "
-          "autenticação e controle de acesso. Os artefatos, o roteiro do vídeo e o checklist de entrega estão no repositório."),
+    ("p", "Como próximos passos, destacam-se uma suíte automatizada para o backend, a paginação das listagens e, fora do escopo atual, autenticação e controle de acesso. "
+          "O código, os wireframes, as capturas de tela e este relatório estão no repositório do projeto."),
 ]
 
 # Referências: chave -> (rótulo no texto, entrada completa em texto simples, campos BibTeX)
 REFERENCIAS = {
-    "efcore": ("Microsoft, s.d.", "Microsoft. Entity Framework Core documentation. Disponível em: https://learn.microsoft.com/ef/core/. Acesso em: nov. 2026.",
+    "efcore": ("Microsoft 2026", "Microsoft. Entity Framework Core documentation. Disponível em: https://learn.microsoft.com/ef/core/. Acesso em: nov. 2026.",
                {"author": "{Microsoft}", "title": "Entity Framework Core documentation", "howpublished": "\\url{https://learn.microsoft.com/ef/core/}", "note": "Acesso em: nov. 2026"}),
-    "aspnet": ("Microsoft, s.d.", "Microsoft. ASP.NET Core documentation. Disponível em: https://learn.microsoft.com/aspnet/core/. Acesso em: nov. 2026.",
+    "aspnet": ("Microsoft 2026", "Microsoft. ASP.NET Core documentation. Disponível em: https://learn.microsoft.com/aspnet/core/. Acesso em: nov. 2026.",
                {"author": "{Microsoft}", "title": "ASP.NET Core documentation", "howpublished": "\\url{https://learn.microsoft.com/aspnet/core/}", "note": "Acesso em: nov. 2026"}),
-    "cors": ("Microsoft, s.d.", "Microsoft. Enable Cross-Origin Requests (CORS) in ASP.NET Core. Disponível em: https://learn.microsoft.com/aspnet/core/security/cors. Acesso em: nov. 2026.",
+    "cors": ("Microsoft 2026", "Microsoft. Enable Cross-Origin Requests (CORS) in ASP.NET Core. Disponível em: https://learn.microsoft.com/aspnet/core/security/cors. Acesso em: nov. 2026.",
              {"author": "{Microsoft}", "title": "Enable Cross-Origin Requests (CORS) in ASP.NET Core", "howpublished": "\\url{https://learn.microsoft.com/aspnet/core/security/cors}", "note": "Acesso em: nov. 2026"}),
-    "fielding": ("Fielding, 2000", "Fielding, R. T. Architectural Styles and the Design of Network-based Software Architectures. Tese (Doutorado em Informação e Ciência da Computação) — University of California, Irvine, 2000.",
+    "fielding": ("Fielding 2000", "Fielding, R. T. Architectural Styles and the Design of Network-based Software Architectures. Tese (Doutorado em Informação e Ciência da Computação) — University of California, Irvine, 2000.",
                  {"author": "Fielding, Roy Thomas", "title": "Architectural Styles and the Design of Network-based Software Architectures", "year": "2000", "howpublished": "Tese (Doutorado), University of California, Irvine"}),
-    "react": ("React, s.d.", "React. React documentation. Disponível em: https://react.dev/. Acesso em: nov. 2026.",
+    "react": ("React 2026", "React. React documentation. Disponível em: https://react.dev/. Acesso em: nov. 2026.",
               {"author": "{React}", "title": "React documentation", "howpublished": "\\url{https://react.dev/}", "note": "Acesso em: nov. 2026"}),
-    "vite": ("Vite, s.d.", "Vite. Vite: next generation frontend tooling. Disponível em: https://vite.dev/. Acesso em: nov. 2026.",
+    "vite": ("Vite 2026", "Vite. Vite: next generation frontend tooling. Disponível em: https://vite.dev/. Acesso em: nov. 2026.",
              {"author": "{Vite}", "title": "Vite: next generation frontend tooling", "howpublished": "\\url{https://vite.dev/}", "note": "Acesso em: nov. 2026"}),
-    "router": ("React Router, s.d.", "React Router. React Router documentation. Disponível em: https://reactrouter.com/. Acesso em: nov. 2026.",
+    "router": ("React Router 2026", "React Router. React Router documentation. Disponível em: https://reactrouter.com/. Acesso em: nov. 2026.",
                {"author": "{React Router}", "title": "React Router documentation", "howpublished": "\\url{https://reactrouter.com/}", "note": "Acesso em: nov. 2026"}),
-    "vitest": ("Vitest, s.d.", "Vitest. Vitest: next generation testing framework. Disponível em: https://vitest.dev/. Acesso em: nov. 2026.",
+    "vitest": ("Vitest 2026", "Vitest. Vitest: next generation testing framework. Disponível em: https://vitest.dev/. Acesso em: nov. 2026.",
                {"author": "{Vitest}", "title": "Vitest: next generation testing framework", "howpublished": "\\url{https://vitest.dev/}", "note": "Acesso em: nov. 2026"}),
-    "rtl": ("Testing Library, s.d.", "Testing Library. React Testing Library. Disponível em: https://testing-library.com/docs/react-testing-library/intro/. Acesso em: nov. 2026.",
+    "rtl": ("Testing Library 2026", "Testing Library. React Testing Library. Disponível em: https://testing-library.com/docs/react-testing-library/intro/. Acesso em: nov. 2026.",
             {"author": "{Testing Library}", "title": "React Testing Library", "howpublished": "\\url{https://testing-library.com/docs/react-testing-library/intro/}", "note": "Acesso em: nov. 2026"}),
-    "playwright": ("Microsoft, s.d.", "Microsoft. Playwright: fast and reliable end-to-end testing. Disponível em: https://playwright.dev/. Acesso em: nov. 2026.",
+    "playwright": ("Microsoft 2026", "Microsoft. Playwright: fast and reliable end-to-end testing. Disponível em: https://playwright.dev/. Acesso em: nov. 2026.",
                    {"author": "{Microsoft}", "title": "Playwright: fast and reliable end-to-end testing", "howpublished": "\\url{https://playwright.dev/}", "note": "Acesso em: nov. 2026"}),
-    "axe": ("Deque Systems, s.d.", "Deque Systems. axe-core: accessibility engine for automated web UI testing. Disponível em: https://github.com/dequelabs/axe-core. Acesso em: nov. 2026.",
+    "axe": ("Deque Systems 2026", "Deque Systems. axe-core: accessibility engine for automated web UI testing. Disponível em: https://github.com/dequelabs/axe-core. Acesso em: nov. 2026.",
             {"author": "{Deque Systems}", "title": "axe-core: accessibility engine for automated web UI testing", "howpublished": "\\url{https://github.com/dequelabs/axe-core}", "note": "Acesso em: nov. 2026"}),
-    "wcag": ("W3C, 2023", "W3C. Web Content Accessibility Guidelines (WCAG) 2.2. W3C Recommendation, 2023. Disponível em: https://www.w3.org/TR/WCAG22/. Acesso em: nov. 2026.",
+    "wcag": ("W3C 2023", "W3C. Web Content Accessibility Guidelines (WCAG) 2.2. W3C Recommendation, 2023. Disponível em: https://www.w3.org/TR/WCAG22/. Acesso em: nov. 2026.",
              {"author": "{W3C}", "title": "Web Content Accessibility Guidelines (WCAG) 2.2", "year": "2023", "howpublished": "\\url{https://www.w3.org/TR/WCAG22/}", "note": "W3C Recommendation. Acesso em: nov. 2026"}),
-    "mdndialog": ("MDN, s.d.", "MDN Web Docs. The Dialog element. Disponível em: https://developer.mozilla.org/docs/Web/HTML/Element/dialog. Acesso em: nov. 2026.",
+    "mdndialog": ("MDN 2026", "MDN Web Docs. The Dialog element. Disponível em: https://developer.mozilla.org/docs/Web/HTML/Element/dialog. Acesso em: nov. 2026.",
                   {"author": "{MDN Web Docs}", "title": "The Dialog element", "howpublished": "\\url{https://developer.mozilla.org/docs/Web/HTML/Element/dialog}", "note": "Acesso em: nov. 2026"}),
-    "sbc": ("SBC, s.d.", "Sociedade Brasileira de Computação. Modelo para publicação de artigos da SBC. Disponível em: https://www.sbc.org.br/. Acesso em: nov. 2026.",
-            {"author": "{Sociedade Brasileira de Computação}", "title": "Modelo para publicação de artigos da SBC", "howpublished": "\\url{https://www.sbc.org.br/}", "note": "Acesso em: nov. 2026"}),
+    "sbc": ("SBC 2026", "Sociedade Brasileira de Computação. SBC Conferences Template. Disponível em: https://www.overleaf.com/latex/templates/sbc-conferences-template/blbxwjwzdngr. Acesso em: nov. 2026.",
+            {"author": "{Sociedade Brasileira de Computação}", "title": "SBC Conferences Template", "howpublished": "\\url{https://www.overleaf.com/latex/templates/sbc-conferences-template/blbxwjwzdngr}", "note": "Acesso em: nov. 2026"}),
 }
