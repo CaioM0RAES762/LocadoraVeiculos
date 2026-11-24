@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="952" viewBox="0 0 1440 952" role="img" aria-label="Clientes — cadastro e edição">
+<title>Clientes — cadastro e edição</title>
+<rect x="0" y="0" width="1440" height="1400" rx="0" fill="#fff" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="0" y="0" width="1440" height="860" rx="0" fill="#eceff1" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="0" y="0" width="240" height="860" rx="0" fill="#37474f" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="24" y="26" width="38" height="38" rx="9" fill="#f2994a" stroke="none" stroke-width="1" opacity="1"/>
+<text x="74" y="42" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#fff" text-anchor="start">Locadora</text>
+<text x="74" y="59" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#b0bec5" text-anchor="start">de Veículos</text>
+<rect x="32" y="112" width="16" height="16" rx="4" fill="none" stroke="#cfd8dc" stroke-width="1.5" opacity="1"/>
+<text x="62" y="126" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="15" font-weight="500" fill="#fff" text-anchor="start">Painel</text>
+<rect x="32" y="160" width="16" height="16" rx="4" fill="none" stroke="#cfd8dc" stroke-width="1.5" opacity="1"/>
+<text x="62" y="174" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="15" font-weight="500" fill="#fff" text-anchor="start">Aluguéis</text>
+<rect x="32" y="208" width="16" height="16" rx="4" fill="none" stroke="#cfd8dc" stroke-width="1.5" opacity="1"/>
+<text x="62" y="222" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="15" font-weight="500" fill="#fff" text-anchor="start">Veículos</text>
+<rect x="12" y="244" width="216" height="40" rx="8" fill="#0b5563" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="12" y="244" width="4" height="40" rx="0" fill="#f2994a" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="32" y="256" width="16" height="16" rx="4" fill="none" stroke="#cfd8dc" stroke-width="1.5" opacity="1"/>
+<text x="62" y="270" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#fff" text-anchor="start">Clientes</text>
+<rect x="32" y="304" width="16" height="16" rx="4" fill="none" stroke="#cfd8dc" stroke-width="1.5" opacity="1"/>
+<text x="62" y="318" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="15" font-weight="500" fill="#fff" text-anchor="start">Fabricantes</text>
+<rect x="32" y="352" width="16" height="16" rx="4" fill="none" stroke="#cfd8dc" stroke-width="1.5" opacity="1"/>
+<text x="62" y="366" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="15" font-weight="500" fill="#fff" text-anchor="start">Categorias</text>
+<text x="24" y="824" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#90a4ae" text-anchor="start">Trabalho Prático 2 · Front-end</text>
+<text x="24" y="840" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#90a4ae" text-anchor="start">integrado à API e ao SQL Server</text>
+<text x="272" y="40" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#607d8b" text-anchor="start">Painel / Clientes / Novo cadastro</text>
+<text x="272" y="76" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#263238" text-anchor="start">Novo cliente</text>
+<text x="272" y="100" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#607d8b" text-anchor="start">Os campos marcados com * são obrigatórios.</text>
+<rect x="272" y="124" width="880" height="420" rx="10" fill="#fff" stroke="#cfd8dc" stroke-width="1" opacity="1"/>
+<text x="300" y="160" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="13" font-weight="600" fill="#263238" text-anchor="start">Nome completo *</text>
+<rect x="300" y="168" width="560" height="42" rx="8" fill="#fff" stroke="#90a4ae" stroke-width="1" opacity="1"/>
+<text x="314" y="194" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#263238" text-anchor="start">Mariana Albuquerque</text>
+<text x="300" y="244" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="13" font-weight="600" fill="#263238" text-anchor="start">CPF *</text>
+<rect x="300" y="252" width="360" height="42" rx="8" fill="#fff" stroke="#90a4ae" stroke-width="1" opacity="1"/>
+<text x="314" y="278" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#263238" text-anchor="start">102.030.405-70</text>
+<text x="300" y="310" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#607d8b" text-anchor="start">Informe os 11 dígitos; a máscara é aplicada automaticamente.</text>
+<text x="300" y="348" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="13" font-weight="600" fill="#263238" text-anchor="start">E-mail *</text>
+<rect x="300" y="356" width="560" height="42" rx="8" fill="#fff" stroke="#90a4ae" stroke-width="1" opacity="1"/>
+<text x="314" y="382" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#263238" text-anchor="start">mariana.albuquerque@exemplo.test</text>
+<line x1="300" y1="444" x2="1124" y2="444" stroke="#cfd8dc" stroke-width="1"/>
+<rect x="300" y="468" width="110" height="40" rx="8" fill="#0b5563" stroke="#0b5563" stroke-width="1" opacity="1"/>
+<text x="355" y="493" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#fff" text-anchor="middle">✓  Salvar</text>
+<rect x="422" y="468" width="100" height="40" rx="8" fill="#fff" stroke="#90a4ae" stroke-width="1" opacity="1"/>
+<text x="472" y="493" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#263238" text-anchor="middle">Cancelar</text>
+<circle cx="672" cy="262" r="12" fill="#f2994a" stroke="none" stroke-width="1"/>
+<text x="672" y="267" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="13" font-weight="800" fill="#263238" text-anchor="middle">1</text>
+<circle cx="872" cy="358" r="12" fill="#f2994a" stroke="none" stroke-width="1"/>
+<text x="872" y="363" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="13" font-weight="800" fill="#263238" text-anchor="middle">2</text>
+<rect x="0" y="860" width="1440" height="92" rx="0" fill="#fafbfc" stroke="none" stroke-width="1" opacity="1"/>
+<line x1="0" y1="860" x2="1440" y2="860" stroke="#90a4ae" stroke-width="1"/>
+<text x="32" y="888" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#607d8b" text-anchor="start">NOTAS DA TELA</text>
+<circle cx="42" cy="912" r="9" fill="#f2994a" stroke="none" stroke-width="1"/>
+<text x="42" y="916" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="800" fill="#263238" text-anchor="middle">1</text>
+<text x="62" y="917" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#263238" text-anchor="start">O CPF é digitado com máscara e enviado à API apenas com os 11 dígitos.</text>
+<circle cx="42" cy="936" r="9" fill="#f2994a" stroke="none" stroke-width="1"/>
+<text x="42" y="940" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="800" fill="#263238" text-anchor="middle">2</text>
+<text x="62" y="941" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#263238" text-anchor="start">CPF ou e-mail duplicado: a API responde 409 e a mensagem aparece no resumo de erros do formulário.</text>
+</svg>

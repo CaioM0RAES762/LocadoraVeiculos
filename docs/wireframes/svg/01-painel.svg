@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1000" viewBox="0 0 1440 1000" role="img" aria-label="Painel inicial">
+<title>Painel inicial</title>
+<rect x="0" y="0" width="1440" height="1400" rx="0" fill="#fff" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="0" y="0" width="1440" height="860" rx="0" fill="#eceff1" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="0" y="0" width="240" height="860" rx="0" fill="#37474f" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="24" y="26" width="38" height="38" rx="9" fill="#f2994a" stroke="none" stroke-width="1" opacity="1"/>
+<text x="74" y="42" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#fff" text-anchor="start">Locadora</text>
+<text x="74" y="59" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#b0bec5" text-anchor="start">de Veículos</text>
+<rect x="12" y="100" width="216" height="40" rx="8" fill="#0b5563" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="12" y="100" width="4" height="40" rx="0" fill="#f2994a" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="32" y="112" width="16" height="16" rx="4" fill="none" stroke="#cfd8dc" stroke-width="1.5" opacity="1"/>
+<text x="62" y="126" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#fff" text-anchor="start">Painel</text>
+<rect x="32" y="160" width="16" height="16" rx="4" fill="none" stroke="#cfd8dc" stroke-width="1.5" opacity="1"/>
+<text x="62" y="174" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="15" font-weight="500" fill="#fff" text-anchor="start">Aluguéis</text>
+<rect x="32" y="208" width="16" height="16" rx="4" fill="none" stroke="#cfd8dc" stroke-width="1.5" opacity="1"/>
+<text x="62" y="222" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="15" font-weight="500" fill="#fff" text-anchor="start">Veículos</text>
+<rect x="32" y="256" width="16" height="16" rx="4" fill="none" stroke="#cfd8dc" stroke-width="1.5" opacity="1"/>
+<text x="62" y="270" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="15" font-weight="500" fill="#fff" text-anchor="start">Clientes</text>
+<rect x="32" y="304" width="16" height="16" rx="4" fill="none" stroke="#cfd8dc" stroke-width="1.5" opacity="1"/>
+<text x="62" y="318" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="15" font-weight="500" fill="#fff" text-anchor="start">Fabricantes</text>
+<rect x="32" y="352" width="16" height="16" rx="4" fill="none" stroke="#cfd8dc" stroke-width="1.5" opacity="1"/>
+<text x="62" y="366" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="15" font-weight="500" fill="#fff" text-anchor="start">Categorias</text>
+<text x="24" y="824" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#90a4ae" text-anchor="start">Trabalho Prático 2 · Front-end</text>
+<text x="24" y="840" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#90a4ae" text-anchor="start">integrado à API e ao SQL Server</text>
+<text x="272" y="40" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#607d8b" text-anchor="start"></text>
+<text x="272" y="76" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#263238" text-anchor="start">Painel</text>
+<text x="272" y="100" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#607d8b" text-anchor="start">Resumo da operação da locadora com dados lidos da API e do banco SQL Server.</text>
+<rect x="272" y="120" width="140" height="40" rx="8" fill="#fff" stroke="#90a4ae" stroke-width="1" opacity="1"/>
+<text x="342" y="145" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#263238" text-anchor="middle">+  Novo aluguel</text>
+<rect x="422" y="120" width="140" height="40" rx="8" fill="#fff" stroke="#90a4ae" stroke-width="1" opacity="1"/>
+<text x="492" y="145" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#263238" text-anchor="middle">+  Novo cliente</text>
+<rect x="572" y="120" width="140" height="40" rx="8" fill="#fff" stroke="#90a4ae" stroke-width="1" opacity="1"/>
+<text x="642" y="145" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#263238" text-anchor="middle">+  Novo veículo</text>
+<rect x="722" y="120" width="164" height="40" rx="8" fill="#fff" stroke="#90a4ae" stroke-width="1" opacity="1"/>
+<text x="804" y="145" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#263238" text-anchor="middle">+  Novo fabricante</text>
+<rect x="896" y="120" width="156" height="40" rx="8" fill="#fff" stroke="#90a4ae" stroke-width="1" opacity="1"/>
+<text x="974" y="145" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#263238" text-anchor="middle">+  Nova categoria</text>
+<rect x="272" y="184" width="268" height="96" rx="10" fill="#fff" stroke="#cfd8dc" stroke-width="1" opacity="1"/>
+<rect x="272" y="184" width="5" height="96" rx="2" fill="#0b5563" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="292" y="202" width="38" height="38" rx="8" fill="#e3edf0" stroke="none" stroke-width="1" opacity="1"/>
+<text x="520" y="234" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="34" font-weight="800" fill="#263238" text-anchor="end">6</text>
+<text x="292" y="266" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#607d8b" text-anchor="start">Fabricantes</text>
+<rect x="560" y="184" width="268" height="96" rx="10" fill="#fff" stroke="#cfd8dc" stroke-width="1" opacity="1"/>
+<rect x="560" y="184" width="5" height="96" rx="2" fill="#0b5563" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="580" y="202" width="38" height="38" rx="8" fill="#e3edf0" stroke="none" stroke-width="1" opacity="1"/>
+<text x="808" y="234" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="34" font-weight="800" fill="#263238" text-anchor="end">5</text>
+<text x="580" y="266" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#607d8b" text-anchor="start">Categorias</text>
+<rect x="848" y="184" width="268" height="96" rx="10" fill="#fff" stroke="#cfd8dc" stroke-width="1" opacity="1"/>
+<rect x="848" y="184" width="5" height="96" rx="2" fill="#0b5563" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="868" y="202" width="38" height="38" rx="8" fill="#e3edf0" stroke="none" stroke-width="1" opacity="1"/>
+<text x="1096" y="234" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="34" font-weight="800" fill="#263238" text-anchor="end">9</text>
+<text x="868" y="266" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#607d8b" text-anchor="start">Clientes</text>
+<rect x="1136" y="184" width="268" height="96" rx="10" fill="#fff" stroke="#cfd8dc" stroke-width="1" opacity="1"/>
+<rect x="1136" y="184" width="5" height="96" rx="2" fill="#0b5563" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="1156" y="202" width="38" height="38" rx="8" fill="#e3edf0" stroke="none" stroke-width="1" opacity="1"/>
+<text x="1384" y="234" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="34" font-weight="800" fill="#263238" text-anchor="end">15</text>
+<text x="1156" y="266" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#607d8b" text-anchor="start">Veículos</text>
+<rect x="272" y="296" width="268" height="96" rx="10" fill="#fff" stroke="#cfd8dc" stroke-width="1" opacity="1"/>
+<rect x="272" y="296" width="5" height="96" rx="2" fill="#f2994a" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="292" y="314" width="38" height="38" rx="8" fill="#e3edf0" stroke="none" stroke-width="1" opacity="1"/>
+<text x="520" y="346" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="34" font-weight="800" fill="#263238" text-anchor="end">10</text>
+<text x="292" y="378" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#607d8b" text-anchor="start">Veículos disponíveis</text>
+<rect x="560" y="296" width="268" height="96" rx="10" fill="#fff" stroke="#cfd8dc" stroke-width="1" opacity="1"/>
+<rect x="560" y="296" width="5" height="96" rx="2" fill="#f2994a" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="580" y="314" width="38" height="38" rx="8" fill="#e3edf0" stroke="none" stroke-width="1" opacity="1"/>
+<text x="808" y="346" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="34" font-weight="800" fill="#263238" text-anchor="end">3</text>
+<text x="580" y="378" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#607d8b" text-anchor="start">Aluguéis em andamento</text>
+<rect x="848" y="296" width="268" height="96" rx="10" fill="#fff" stroke="#cfd8dc" stroke-width="1" opacity="1"/>
+<rect x="848" y="296" width="5" height="96" rx="2" fill="#b42318" stroke="none" stroke-width="1" opacity="1"/>
+<rect x="868" y="314" width="38" height="38" rx="8" fill="#e3edf0" stroke="none" stroke-width="1" opacity="1"/>
+<text x="1096" y="346" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="34" font-weight="800" fill="#263238" text-anchor="end">2</text>
+<text x="868" y="378" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#607d8b" text-anchor="start">Aluguéis atrasados</text>
+<rect x="272" y="424" width="740" height="396" rx="10" fill="#fff" stroke="#cfd8dc" stroke-width="1" opacity="1"/>
+<text x="296" y="456" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#263238" text-anchor="start">Aluguéis em aberto</text>
+<rect x="292" y="476" width="700" height="36" rx="6" fill="#e3e8eb" stroke="none" stroke-width="1" opacity="1"/>
+<text x="306" y="499" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#607d8b" text-anchor="start">CLIENTE</text>
+<text x="496" y="499" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#607d8b" text-anchor="start">VEÍCULO</text>
+<text x="686" y="499" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#607d8b" text-anchor="start">FIM PREVISTO</text>
+<text x="876" y="499" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#607d8b" text-anchor="start">SITUAÇÃO</text>
+<line x1="292" y1="564" x2="992" y2="564" stroke="#cfd8dc" stroke-width="1"/>
+<text x="306" y="543" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#263238" text-anchor="start">Rafael Tavares</text>
+<text x="496" y="543" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#263238" text-anchor="start">WXY6S78 · Jetta</text>
+<text x="686" y="543" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#263238" text-anchor="start">20/11/2026 09:00</text>
+<rect x="876" y="527" width="79.6" height="22" rx="11" fill="#ffebee" stroke="none" stroke-width="1" opacity="1"/>
+<text x="915.8" y="543" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#b42318" text-anchor="middle">Atrasado</text>
+<line x1="292" y1="616" x2="992" y2="616" stroke="#cfd8dc" stroke-width="1"/>
+<text x="306" y="595" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#263238" text-anchor="start">Beatriz Nogueira</text>
+<text x="496" y="595" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#263238" text-anchor="start">FGH2E34 · Argo</text>
+<text x="686" y="595" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#263238" text-anchor="start">22/11/2026 09:00</text>
+<rect x="876" y="579" width="79.6" height="22" rx="11" fill="#ffebee" stroke="none" stroke-width="1" opacity="1"/>
+<text x="915.8" y="595" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#b42318" text-anchor="middle">Atrasado</text>
+<line x1="292" y1="668" x2="992" y2="668" stroke="#cfd8dc" stroke-width="1"/>
+<text x="306" y="647" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#263238" text-anchor="start">Camila Furtado</text>
+<text x="496" y="647" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#263238" text-anchor="start">QRS4Q56 · Duster</text>
+<text x="686" y="647" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#263238" text-anchor="start">26/11/2026 09:00</text>
+<rect x="876" y="631" width="108.4" height="22" rx="11" fill="#e3f2fd" stroke="none" stroke-width="1" opacity="1"/>
+<text x="930.2" y="647" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#0d5aa7" text-anchor="middle">Em andamento</text>
+<line x1="292" y1="720" x2="992" y2="720" stroke="#cfd8dc" stroke-width="1"/>
+<text x="306" y="699" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#263238" text-anchor="start">Otávio Resende</text>
+<text x="496" y="699" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#263238" text-anchor="start">KLM2O34 · Creta</text>
+<text x="686" y="699" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#263238" text-anchor="start">27/11/2026 09:00</text>
+<rect x="876" y="683" width="108.4" height="22" rx="11" fill="#e3f2fd" stroke="none" stroke-width="1" opacity="1"/>
+<text x="930.2" y="699" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#0d5aa7" text-anchor="middle">Em andamento</text>
+<text x="296" y="800" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#0b5563" text-anchor="start">Ver todos os aluguéis</text>
+<rect x="1032" y="424" width="376" height="396" rx="10" fill="#fff" stroke="#cfd8dc" stroke-width="1" opacity="1"/>
+<text x="1056" y="456" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#263238" text-anchor="start">Consultas</text>
+<text x="1056" y="496" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#0b5563" text-anchor="start">Veículos disponíveis</text>
+<text x="1056" y="516" font-family="Consolas, 'Courier New', monospace" font-size="12" font-weight="400" fill="#607d8b" text-anchor="start">GET /api/Veiculos/filtro/disponiveis</text>
+<text x="1056" y="554" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#0b5563" text-anchor="start">Aluguéis por período</text>
+<text x="1056" y="574" font-family="Consolas, 'Courier New', monospace" font-size="12" font-weight="400" fill="#607d8b" text-anchor="start">GET /api/Alugueis/filtro/periodo</text>
+<text x="1056" y="612" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#0b5563" text-anchor="start">Histórico por cliente</text>
+<text x="1056" y="632" font-family="Consolas, 'Courier New', monospace" font-size="12" font-weight="400" fill="#607d8b" text-anchor="start">GET /api/Alugueis/filtro/cliente/{id}</text>
+<text x="1056" y="670" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#0b5563" text-anchor="start">Veículos por fabricante</text>
+<text x="1056" y="690" font-family="Consolas, 'Courier New', monospace" font-size="12" font-weight="400" fill="#607d8b" text-anchor="start">GET /api/Veiculos/filtro/fabricante</text>
+<text x="1056" y="728" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#0b5563" text-anchor="start">Clientes sem aluguéis</text>
+<text x="1056" y="748" font-family="Consolas, 'Courier New', monospace" font-size="12" font-weight="400" fill="#607d8b" text-anchor="start">GET /api/Clientes/filtro/sem-alugueis</text>
+<circle cx="572" cy="140" r="12" fill="#f2994a" stroke="none" stroke-width="1"/>
+<text x="572" y="145" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="13" font-weight="800" fill="#263238" text-anchor="middle">1</text>
+<circle cx="1390" cy="176" r="12" fill="#f2994a" stroke="none" stroke-width="1"/>
+<text x="1390" y="181" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="13" font-weight="800" fill="#263238" text-anchor="middle">2</text>
+<circle cx="992" cy="440" r="12" fill="#f2994a" stroke="none" stroke-width="1"/>
+<text x="992" y="445" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="13" font-weight="800" fill="#263238" text-anchor="middle">3</text>
+<circle cx="1390" cy="440" r="12" fill="#f2994a" stroke="none" stroke-width="1"/>
+<text x="1390" y="445" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="13" font-weight="800" fill="#263238" text-anchor="middle">4</text>
+<rect x="0" y="860" width="1440" height="140" rx="0" fill="#fafbfc" stroke="none" stroke-width="1" opacity="1"/>
+<line x1="0" y1="860" x2="1440" y2="860" stroke="#90a4ae" stroke-width="1"/>
+<text x="32" y="888" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#607d8b" text-anchor="start">NOTAS DA TELA</text>
+<circle cx="42" cy="912" r="9" fill="#f2994a" stroke="none" stroke-width="1"/>
+<text x="42" y="916" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="800" fill="#263238" text-anchor="middle">1</text>
+<text x="62" y="917" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#263238" text-anchor="start">Atalhos para os cadastros mais usados.</text>
+<circle cx="42" cy="936" r="9" fill="#f2994a" stroke="none" stroke-width="1"/>
+<text x="42" y="940" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="800" fill="#263238" text-anchor="middle">2</text>
+<text x="62" y="941" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#263238" text-anchor="start">Indicadores calculados com listas reais: GET /api/Fabricantes, /Categorias, /Clientes, /Veiculos, /Veiculos/filtro/disponiveis e /Alugueis.</text>
+<circle cx="42" cy="960" r="9" fill="#f2994a" stroke="none" stroke-width="1"/>
+<text x="42" y="964" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="800" fill="#263238" text-anchor="middle">3</text>
+<text x="62" y="965" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#263238" text-anchor="start">Aluguéis em aberto (em andamento e atrasados) ordenados pelo fim previsto; a situação vem da API.</text>
+<circle cx="42" cy="984" r="9" fill="#f2994a" stroke="none" stroke-width="1"/>
+<text x="42" y="988" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="11" font-weight="800" fill="#263238" text-anchor="middle">4</text>
+<text x="62" y="989" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#263238" text-anchor="start">Atalhos para as consultas SQL que alimentam as telas de filtro.</text>
+</svg>
