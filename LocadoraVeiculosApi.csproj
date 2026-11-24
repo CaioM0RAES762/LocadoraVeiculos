@@ -3,6 +3,8 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <!-- A pasta do frontend (Node) não faz parte do projeto .NET: evita compilar arquivos de node_modules. -->
+    <DefaultItemExcludes>$(DefaultItemExcludes);frontend\**</DefaultItemExcludes>
   </PropertyGroup>
 
   <ItemGroup>

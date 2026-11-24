@@ -721,3 +721,60 @@ Exemplo de item da resposta:
 | 200 OK | Lista de aluguéis do período (pode ser vazia). |
 | 400 Bad Request | `inicio` ou `fim` ausente ou em formato inválido; ou `{ "mensagem": "A data final do período não pode ser anterior à data inicial." }` |
 | 500 Internal Server Error | Erro inesperado. |
+
+---
+
+## Extensões da Etapa 2 (integração com o frontend)
+
+As mudanças abaixo foram feitas para a integração com o frontend React e **não quebram** o contrato da Etapa 1: todos os
+parâmetros são opcionais e os campos novos apenas acrescentam informação às respostas existentes.
+
+### Filtros opcionais nos `GET` de listagem
+
+Sem parâmetros, cada listagem continua devolvendo todos os registros. Parâmetros de texto usam busca parcial (`LIKE`, sem
+diferenciar maiúsculas de minúsculas). Parâmetros numéricos ou de data inválidos retornam `400` (`ValidationProblemDetails`).
+
+| Endpoint | Parâmetros opcionais |
+| --- | --- |
+| `GET /api/Fabricantes` | `id`, `nome` |
+| `GET /api/Categorias` | `id`, `nome` |
+| `GET /api/Clientes` | `nome`, `cpf` (pontos e traço são ignorados), `email` |
+| `GET /api/Veiculos` | `placa` (hífen ignorado), `modelo`, `fabricanteId`, `categoriaId`, `disponivel` (`true`/`false`) |
+| `GET /api/Alugueis` | `clienteId`, `veiculoId`, `situacao` (`EmAndamento`, `Atrasado` ou `Devolvido`), `inicio`, `fim` (datas; filtram pela data de início do aluguel, igual a `/filtro/periodo`) |
+
+Exemplos:
+
+```text
+GET /api/Veiculos?placa=abc&fabricanteId=1&disponivel=true
+GET /api/Alugueis?clienteId=2&situacao=Atrasado&inicio=2026-11-01&fim=2026-11-30
+```
+
+Em `GET /api/Alugueis`, uma `situacao` desconhecida ou `fim` anterior a `inicio` retornam `400` com `{ "mensagem": "..." }`.
+
+### Campos novos nas respostas
+
+| Recurso | Campo | Descrição |
+| --- | --- | --- |
+| Veículo (`GET`, `POST`, `/filtro/fabricante`, `/filtro/disponiveis`) | `disponivel` (`bool`) | `true` quando o veículo não possui aluguel em aberto (sem devolução). Calculado no banco. |
+| Aluguel (`GET`, `POST`, `/filtro/cliente/{id}`, `/filtro/periodo`) | `situacao` (`string`) | `Devolvido` (há data de devolução), `Atrasado` (sem devolução e fim previsto já passou) ou `EmAndamento`. Derivado de `DataDevolucao` e `DataFimPrevista`; não é persistido. |
+
+Os corpos de `POST` e `PUT` **não mudaram**.
+
+### CORS
+
+A API aceita requisições de navegador apenas das origens listadas em `Cors:AllowedOrigins` (`appsettings.json`), por padrão
+`http://localhost:5173`/`4173` (Vite em desenvolvimento e `vite preview`). Métodos liberados: `GET`, `POST`, `PUT` e `DELETE`; cabeçalho
+liberado: `Content-Type`. Nenhuma origem curinga é aceita. Em desenvolvimento, o frontend usa o proxy do Vite (`/api`), que dispensa CORS;
+a política vale quando `VITE_API_URL` aponta diretamente para a API. Os cabeçalhos CORS também são enviados nas respostas de erro
+tratadas pelo manipulador global (`409` e `500`), para que o navegador consiga ler a mensagem.
+
+### Configuração do banco em outro ambiente
+
+A cadeia de conexão do `appsettings.json` (instância `.\SQLEXPRESS`) continua sendo o padrão da Etapa 1. Para usar outra instância sem
+editar arquivos versionados, defina a variável de ambiente `ConnectionStrings__DefaultConnection`, por exemplo:
+
+```powershell
+$env:ConnectionStrings__DefaultConnection = "Server=localhost;Database=LocadoraVeiculosDb;Trusted_Connection=True;TrustServerCertificate=True;"
+dotnet ef database update
+dotnet run
+```
