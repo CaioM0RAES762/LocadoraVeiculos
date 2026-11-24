@@ -69,7 +69,7 @@ export function AluguelTable({ linhas, legenda, mostrarCliente, onDevolver, onEx
           </span>
           {l.dataDevolucao && (
             <span>
-              <span className="periodo__rotulo">Devolvido</span> {formatarDataHora(l.dataDevolucao)}
+              <span className="periodo__rotulo">Devolução</span> {formatarDataHora(l.dataDevolucao)}
             </span>
           )}
         </span>

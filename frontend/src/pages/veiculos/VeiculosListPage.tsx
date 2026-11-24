@@ -145,7 +145,7 @@ export function VeiculosListPage() {
         </>
       )}
 
-      <section aria-label="Lista de veículos" className="cartao">
+      <section aria-label="Resultados da consulta" className="cartao">
         {(consulta !== 'fabricante' || aplicados.nome.trim() !== '') && <ConsultaInfo rota={rota} total={data?.length} />}
         {loading && <LoadingState mensagem="Carregando veículos…" />}
         {error && <ErrorState mensagem={mensagemDeErro(error)} onTentarNovamente={reload} />}

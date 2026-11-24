@@ -48,7 +48,7 @@ export function FormCadastroSimples<T extends RegistroSimples>({ config }: { con
     <>
       <PageHeader titulo={titulo} trilha={trilha} subtitulo="Os campos marcados com * são obrigatórios." />
       <section className="cartao cartao--formulario">
-        {registro.loading ? (
+        {editando && registro.loading ? (
           <LoadingState />
         ) : (
           <Formulario key={idNumero ?? 'novo'} config={config} idNumero={idNumero} nomeInicial={registro.data?.nome ?? ''} />

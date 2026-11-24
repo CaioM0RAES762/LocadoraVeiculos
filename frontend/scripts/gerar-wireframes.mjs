@@ -674,7 +674,7 @@ const colunasAlugueis = [
 const linhasAlugueis = [
   ['Otávio Resende', 'KLM2O34 · Creta', 'Início  23/11/2026 09:00\nPrevisto  27/11/2026 09:00', 'R$ 169,90', '—', { tom: 'info', t: 'Em andamento' }, ['Devolver', 'Editar', 'Excluir']],
   ['Beatriz Nogueira', 'FGH2E34 · Argo', 'Início  18/11/2026 09:00\nPrevisto  22/11/2026 09:00', 'R$ 129,90', '—', { tom: 'perigo', t: 'Atrasado' }, ['Devolver', 'Editar', 'Excluir']],
-  ['Luiza Cordeiro', 'VWX7J89 · Onix', 'Início  18/11/2026 09:00\nPrevisto  20/11/2026 09:00\nDevolvido  20/11/2026 09:00', 'R$ 109,90', 'R$ 219,80', { tom: 'sucesso', t: 'Devolvido' }, ['Editar', 'Excluir']],
+  ['Luiza Cordeiro', 'VWX7J89 · Onix', 'Início  18/11/2026 09:00\nPrevisto  20/11/2026 09:00\nDevolução  20/11/2026 09:00', 'R$ 109,90', 'R$ 219,80', { tom: 'sucesso', t: 'Devolvido' }, ['Editar', 'Excluir']],
 ];
 
 novo('12-alugueis-lista', 'Aluguéis — listagem e filtros', () => {
@@ -784,7 +784,7 @@ novo('19-alugueis-historico-cliente', 'Histórico de aluguéis por cliente', () 
     ],
     [
       ['WXY6S78 · Volkswagen Jetta', 'Início  15/11/2026 09:00\nPrevisto  20/11/2026 09:00', 'R$ 249,90', '—', { tom: 'perigo', t: 'Atrasado' }, ['Devolver', 'Editar', 'Excluir']],
-      ['STU6I78 · Volkswagen T-Cross', 'Início  10/11/2026 09:00\nPrevisto  15/11/2026 09:00\nDevolvido  15/11/2026 09:00', 'R$ 179,90', 'R$ 899,50', { tom: 'sucesso', t: 'Devolvido' }, ['Editar', 'Excluir']],
+      ['STU6I78 · Volkswagen T-Cross', 'Início  10/11/2026 09:00\nPrevisto  15/11/2026 09:00\nDevolução  15/11/2026 09:00', 'R$ 179,90', 'R$ 899,50', { tom: 'sucesso', t: 'Devolvido' }, ['Editar', 'Excluir']],
     ],
     { alturaLinha: 80 },
   );

@@ -73,7 +73,7 @@ export function ClientesListPage() {
         </FilterBar>
       )}
 
-      <section aria-label="Lista de clientes" className="cartao">
+      <section aria-label="Resultados da consulta" className="cartao">
         <ConsultaInfo rota={rota} total={data?.length} />
         {loading && <LoadingState mensagem="Carregando clientes…" />}
         {error && <ErrorState mensagem={mensagemDeErro(error)} onTentarNovamente={reload} />}

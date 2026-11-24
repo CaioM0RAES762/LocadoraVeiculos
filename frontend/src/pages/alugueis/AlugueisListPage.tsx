@@ -133,7 +133,7 @@ export function AlugueisListPage() {
         </>
       )}
 
-      <section aria-label="Lista de aluguéis" className="cartao">
+      <section aria-label="Resultados da consulta" className="cartao">
         {!aguardandoParametros && (
           <ConsultaInfo
             rota={rota}

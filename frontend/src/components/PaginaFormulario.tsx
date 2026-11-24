@@ -12,19 +12,22 @@ interface Props<D> {
   rotuloNovo: string;
   /** Carrega o registro (quando há id) e as listas auxiliares do formulário. */
   carregar: (id: number | undefined, signal: AbortSignal) => Promise<D>;
+  /** Quando informado, o cadastro (sem id) abre imediatamente com este valor, sem etapa de carregamento. */
+  inicialNoCadastro?: D;
   children: (dados: D, id: number | undefined) => ReactNode;
 }
 
 /** Moldura das telas de cadastro/edição: lê o :id da rota, carrega os dados e trata carregamento e erros. */
-export function PaginaFormulario<D>({ tituloPlural, singular, rota, rotuloNovo, carregar, children }: Props<D>) {
+export function PaginaFormulario<D>({ tituloPlural, singular, rota, rotuloNovo, carregar, inicialNoCadastro, children }: Props<D>) {
   const { id } = useParams();
   const idNumero = id === undefined ? undefined : Number(id);
   const editando = idNumero !== undefined;
   const idInvalido = editando && (!Number.isInteger(idNumero) || idNumero < 1);
+  const abreDireto = !editando && inicialNoCadastro !== undefined;
 
   // Para um id inválido nada é consultado; a mensagem de erro abaixo substitui o formulário.
   const dados = useAsyncData<D>(
-    (signal) => (idInvalido ? Promise.resolve(undefined as D) : carregar(idNumero, signal)),
+    (signal) => (idInvalido || abreDireto ? Promise.resolve(undefined as D) : carregar(idNumero, signal)),
     `${idNumero ?? 'novo'}`,
   );
 
@@ -48,6 +51,8 @@ export function PaginaFormulario<D>({ tituloPlural, singular, rota, rotuloNovo, 
               <Link to={rota}>Voltar para {tituloPlural.toLowerCase()}</Link>
             </p>
           </>
+        ) : abreDireto ? (
+          children(inicialNoCadastro, undefined)
         ) : dados.loading ? (
           <LoadingState />
         ) : (

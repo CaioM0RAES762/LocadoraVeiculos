@@ -17,6 +17,7 @@ export function ClienteFormPage() {
       singular="cliente"
       rota="/clientes"
       rotuloNovo="Novo cliente"
+      inicialNoCadastro={null}
       carregar={(id, signal) => (id === undefined ? Promise.resolve(null) : clientesApi.obter(id, signal))}
     >
       {(cliente, id) => <Formulario key={id ?? 'novo'} cliente={cliente} id={id} />}

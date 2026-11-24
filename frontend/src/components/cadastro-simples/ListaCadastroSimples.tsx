@@ -59,7 +59,7 @@ export function ListaCadastroSimples<T extends RegistroSimples>({ config }: { co
         />
       </FilterBar>
 
-      <section aria-label={`Lista de ${config.tituloPlural.toLowerCase()}`} className="cartao">
+      <section aria-label="Resultados da consulta" className="cartao">
         {loading && <LoadingState mensagem={`Carregando ${config.tituloPlural.toLowerCase()}…`} />}
         {error && <ErrorState mensagem={mensagemDeErro(error)} onTentarNovamente={reload} />}
         {data && data.length === 0 && (
