@@ -20,9 +20,10 @@ ASP.NET Core** (Etapa 1) e **frontend React + TypeScript** integrado à API real
 7. [Telas e rotas do frontend](#telas-e-rotas-do-frontend)
 8. [Rotas da API usadas pelo frontend](#rotas-da-api-usadas-pelo-frontend)
 9. [Wireframes e Figma](#wireframes-e-figma)
-10. [Testes e build](#testes-e-build)
-11. [Capturas de tela](#capturas-de-tela)
-12. [Autoria e entrega](#autoria-e-entrega)
+10. [Relatório acadêmico (modelo oficial da SBC)](#relatório-acadêmico-modelo-oficial-da-sbc)
+11. [Testes e build](#testes-e-build)
+12. [Capturas de tela](#capturas-de-tela)
+13. [Autoria e entrega](#autoria-e-entrega)
 
 ## Tecnologias
 
@@ -194,7 +195,7 @@ Os PNG e SVG são gerados por `npm run wireframes` (em `frontend/`), a partir de
 ## Relatório acadêmico (modelo oficial da SBC)
 
 O relatório está em [docs/artigo](docs/artigo): `artigo.tex` (formatado com o modelo SBC, usando `sbc-template.sty` e `sbc.bst` desta pasta),
-`referencias.bib`, `imagens/`, `artigo.pdf` e `artigo.docx`. O texto vem de uma fonte única (`conteudo.py`), que `gerar_artigo.py` converte em `.tex`, `.bib` e `.docx`.
+`referencias.bib`, `imagens/`, `artigo.pdf` e `artigo.docx` (detalhes em [docs/artigo/LEIA-ME.md](docs/artigo/LEIA-ME.md)). O texto vem de uma fonte única (`conteudo.py`), que `gerar_artigo.py` converte em `.tex`, `.bib` e `.docx`.
 
 ```powershell
 cd docs\artigo
@@ -224,7 +225,7 @@ npm run test:e2e          # Playwright: 8 testes ponta a ponta (exige API + SQL 
 
 Os testes ponta a ponta criam registros com o prefixo `TESTE E2E`, exercitam CRUD, filtros, consultas especiais, devolução, conflitos 409,
 recarregamento em rotas internas, API indisponível e uma varredura de acessibilidade (axe-core, WCAG A/AA) e **removem tudo ao final**.
-Resultados da última execução: veja o relatório em [docs/artigo/artigo.pdf](docs/artigo/artigo.pdf) (seção Testes e resultados).
+Resultados da última execução: veja [docs/checklist-entrega.md](docs/checklist-entrega.md) e a seção *Testes e resultados* do relatório ([docs/artigo/artigo.pdf](docs/artigo/artigo.pdf)).
 
 ## Capturas de tela
 

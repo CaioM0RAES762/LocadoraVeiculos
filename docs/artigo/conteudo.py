@@ -230,7 +230,7 @@ CORPO = [
         ["Análise estática", "`npm run lint`", "sem erros"],
         ["Testes de telas e serviços", "`npm test`", "82 aprovados em 7 arquivos"],
         ["Build de produção", "`npm run build`", "concluído (JS 319,5 kB; 98,0 kB comprimido)"],
-        ["Ponta a ponta com SQL Server", "`npm run test:e2e`", "8 aprovados (cerca de 45 s)"],
+        ["Ponta a ponta com SQL Server", "`npm run test:e2e`", "8 aprovados (33 a 45 s)"],
         ["Acessibilidade (axe-core, A e AA)", "dentro do ponta a ponta", "0 violações graves/críticas em 7 telas"],
         ["SQL x API", "`sqlcmd` x `curl`", "10, 13 e 2 linhas, idênticas nas três consultas"],
         ["API da Etapa 1 (Swagger)", "`docs/relatorio-testes.md`", "36 testes aprovados (04/10/2026)"],
