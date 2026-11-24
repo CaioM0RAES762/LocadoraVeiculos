@@ -17,7 +17,7 @@ Legenda: ✅ pronto e verificado · ⏳ depende de você (aluno) · ⚠️ aten�
 | Front-end em HTML/CSS/JavaScript (frameworks permitidos) | ✅ | React + TypeScript + Vite, CSS próprio |
 | Pasta específica do front-end na estrutura do TP1 | ✅ | `frontend/` na raiz do repositório |
 | Sem dados estáticos/mocados na aplicação | ✅ | Tudo vem da API real; mocks só nos testes automatizados |
-| Relatório (LaTeX, DOCX ou PDF) no modelo SBC | ✅ ⚠️ | `docs/artigo/artigo.pdf` (+ `.docx` e `.tex`). O PDF foi gerado a partir do `.docx` porque não há LaTeX instalado nesta máquina; o `.tex` **não foi compilado aqui** |
+| Relatório (LaTeX, DOCX ou PDF) no modelo SBC | ✅ ⚠️ | `docs/artigo/artigo.pdf` (19 páginas, conferido visualmente) + `.tex` e `.docx`. Não há LaTeX instalado: o PDF foi impresso pelo Edge a partir de uma versão HTML do mesmo conteúdo (`gerar_artigo.py` + `npm run artigo:pdf`); o `.tex` **não foi compilado** e o `.docx` **não foi conferido no Word** (a exportação travou) |
 | Vídeo de 3 a 5 minutos (pitch) | ⏳ | Roteiro pronto em `docs/roteiro-video.md`; **a gravação é sua** |
 | Repositório no GitHub com commits constantes | ⏳ | Histórico local pronto (commits pequenos). Falta criar o repositório no GitHub e fazer o push |
 | `.zip` com todos os artefatos | ✅ | `../LocadoraVeiculos-entrega.zip` (fora da pasta do repositório; sem `node_modules`, `bin`, `obj`, logs ou banco) |
@@ -29,8 +29,10 @@ Legenda: ✅ pronto e verificado · ⏳ depende de você (aluno) · ⚠️ aten�
 - [ ] `[PREENCHER: URL do repositório]` — README e artigo.
 - [ ] Se o professor/curso exigir: matrícula e e-mail do autor (campos do cabeçalho SBC).
 
-Depois de preencher, **regenere o PDF**: abra `docs/artigo/artigo.docx` no Word e use *Salvar como PDF* (ou compile o `.tex` com
-`pdflatex` + `bibtex`, colocando `sbc-template.sty` e `sbc.bst` do modelo oficial da SBC na pasta `docs/artigo/`).
+Depois de preencher, **regenere os arquivos**: edite os campos em `docs/artigo/conteudo.py` (`AUTOR`, `INSTITUICAO`, `EMAIL`, `DISCIPLINA` e o link do Figma) e execute
+`python gerar_artigo.py` (em `docs/artigo/`) seguido de `npm run artigo:pdf` (em `frontend/`, com `PW_CHANNEL=msedge` se quiser usar o Edge). Alternativas: compilar o `.tex` com
+`pdflatex` + `bibtex` (coloque `sbc-template.sty` e `sbc.bst` do modelo oficial da SBC em `docs/artigo/`) ou abrir o `.docx` no Word e *Salvar como PDF*.
+⚠️ Se o Word ainda estiver com o `artigo.docx` aberto (um processo oculto iniciado durante a exportação), o `.docx` não será regravado: feche o Word antes.
 
 ## Antes de enviar
 

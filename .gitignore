@@ -16,6 +16,10 @@ frontend/test-results/
 .env.local
 *.local
 
+# Artigo: HTML intermediário usado só para imprimir o PDF
+docs/artigo/artigo.html
+docs/artigo/__pycache__/
+
 # Artigo LaTeX (arquivos auxiliares)
 docs/artigo/*.aux
 docs/artigo/*.log
